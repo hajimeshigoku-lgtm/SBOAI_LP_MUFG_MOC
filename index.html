@@ -1,0 +1,901 @@
+<title>メガバンクには、いま、診る理由がある</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#F4F6F9;
+  --surface:#FFFFFF;
+  --surface-2:#EDF1F6;
+  --ink:#0F1926;
+  --ink-2:#33414F;
+  --muted:#5D6B7C;
+  --faint:#8695A6;
+  --rule:#D3DBE5;
+  --rule-soft:#E3E9F0;
+  --navy:#0A2540;
+  --navy-ink:#F2F6FB;
+  --blue:#0057B8;
+  --blue-deep:#00408A;
+  --blue-wash:#E7EFF9;
+  --crimson:#AE0F22;
+  --crimson-wash:#FBEAEC;
+  --amber:#8A5A00;
+  --amber-wash:#FBF1DE;
+  --shadow:0 1px 2px rgba(15,25,38,.06), 0 8px 24px rgba(15,25,38,.06);
+  --shadow-lift:0 2px 4px rgba(15,25,38,.08), 0 16px 40px rgba(15,25,38,.10);
+
+  --f-display:"Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --f-body:"Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --f-mono:"IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --measure:64ch;
+  --pad:clamp(1.25rem, 4vw, 3rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B121C;
+    --surface:#121C29;
+    --surface-2:#182434;
+    --ink:#EAF0F7;
+    --ink-2:#C2CFDD;
+    --muted:#93A3B5;
+    --faint:#718295;
+    --rule:#2A3A4C;
+    --rule-soft:#22303F;
+    --navy:#050D17;
+    --navy-ink:#E8F0F9;
+    --blue:#5EA8FF;
+    --blue-deep:#8DC3FF;
+    --blue-wash:#132538;
+    --crimson:#FF8290;
+    --crimson-wash:#2C1519;
+    --amber:#E8B45C;
+    --amber-wash:#2A2213;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    --shadow-lift:0 2px 4px rgba(0,0,0,.45), 0 16px 40px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B121C;
+  --surface:#121C29;
+  --surface-2:#182434;
+  --ink:#EAF0F7;
+  --ink-2:#C2CFDD;
+  --muted:#93A3B5;
+  --faint:#718295;
+  --rule:#2A3A4C;
+  --rule-soft:#22303F;
+  --navy:#050D17;
+  --navy-ink:#E8F0F9;
+  --blue:#5EA8FF;
+  --blue-deep:#8DC3FF;
+  --blue-wash:#132538;
+  --crimson:#FF8290;
+  --crimson-wash:#2C1519;
+  --amber:#E8B45C;
+  --amber-wash:#2A2213;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  --shadow-lift:0 2px 4px rgba(0,0,0,.45), 0 16px 40px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;line-height:1.4;margin:0;font-weight:600}
+p{margin:0}
+a{color:var(--blue);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+strong{font-weight:700;color:var(--ink)}
+::selection{background:var(--blue-wash);color:var(--ink)}
+
+.wrap{max-width:1080px;margin:0 auto;padding-inline:var(--pad)}
+.narrow{max-width:var(--measure)}
+
+/* ---------- eyebrow / labels ---------- */
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:500;color:var(--faint);
+}
+
+/* ---------- cover ---------- */
+.cover{background:var(--navy);color:var(--navy-ink);padding-block:clamp(3.5rem,9vw,7rem) clamp(3rem,7vw,5rem);position:relative;overflow:hidden}
+.cover::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:3px;
+  background:linear-gradient(90deg,var(--blue) 0%,var(--blue) 38%,#AE0F22 38%,#AE0F22 62%,transparent 62%);
+}
+.cover__inner{display:flex;flex-direction:column;gap:2rem}
+.cover .eyebrow{color:#7FA8D4}
+.cover__brand{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline}
+.cover__brand b{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;font-weight:600;color:#B9D2EC}
+.cover h1{
+  font-size:clamp(2.1rem,6.2vw,4rem);line-height:1.28;letter-spacing:-.01em;
+  font-weight:700;color:#fff;max-width:16ch;
+}
+.cover h1 em{font-style:normal;color:#7FC0FF}
+.cover__lede{max-width:56ch;color:#C6D6E7;font-size:clamp(.95rem,1.6vw,1.06rem);line-height:1.95}
+.cover__meta{
+  display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;padding-top:1.4rem;
+  border-top:1px solid rgba(255,255,255,.16);
+  font-family:var(--f-mono);font-size:.75rem;letter-spacing:.06em;color:#8FAECD;
+}
+
+/* ---------- section shell ---------- */
+.section{padding-block:clamp(3rem,7vw,5rem);border-top:1px solid var(--rule-soft)}
+.section:first-of-type{border-top:0}
+.section__head{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2.5rem}
+.section__num{
+  font-family:var(--f-mono);font-size:.74rem;letter-spacing:.18em;font-weight:600;
+  color:var(--blue);
+}
+.section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.005em;max-width:26ch}
+.section__sub{color:var(--muted);max-width:var(--measure);font-size:.97rem}
+
+.prose{display:flex;flex-direction:column;gap:1.15rem;max-width:var(--measure);color:var(--ink-2)}
+.prose h3{font-size:1.12rem;margin-top:1.2rem;color:var(--ink)}
+.prose h3:first-child{margin-top:0}
+
+/* ---------- summary cards ---------- */
+.sumgrid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.sumcard{
+  background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:var(--shadow);
+}
+.sumcard__k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);font-weight:600}
+.sumcard h3{font-size:1.02rem;line-height:1.6;color:var(--ink)}
+.sumcard p{font-size:.9rem;color:var(--muted);line-height:1.8}
+
+/* ---------- stat strip ---------- */
+.stats{display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:2rem}
+.stat{background:var(--surface);padding:1.3rem 1.2rem;display:flex;flex-direction:column;gap:.35rem}
+.stat__v{font-family:var(--f-mono);font-size:clamp(1.5rem,3.6vw,2rem);font-weight:600;color:var(--crimson);font-variant-numeric:tabular-nums;line-height:1.15}
+.stat__v.is-calm{color:var(--blue)}
+.stat__l{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+/* ---------- architecture diagram ---------- */
+.arch{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+.layer{
+  background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--blue);
+  border-radius:2px;padding:1rem 1.1rem;display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:flex-start;
+}
+.layer--core{border-left-color:var(--crimson);background:var(--surface)}
+.layer--ext{border-left-color:var(--amber)}
+.layer__id{
+  flex:0 0 clamp(8.5rem,20vw,11rem);display:flex;flex-direction:column;gap:.25rem;
+}
+.layer__id b{font-size:.95rem;font-family:var(--f-display);font-weight:600;color:var(--ink)}
+.layer__id span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;color:var(--faint)}
+.layer__body{flex:1 1 16rem;min-width:0;font-size:.86rem;color:var(--ink-2);line-height:1.9}
+.layer__chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.55rem}
+.chip{
+  font-family:var(--f-mono);font-size:.68rem;font-weight:600;letter-spacing:.04em;
+  padding:.18rem .5rem;border-radius:2px;background:var(--crimson-wash);color:var(--crimson);
+  border:1px solid color-mix(in srgb, var(--crimson) 28%, transparent);
+}
+.chip a{color:inherit;text-decoration:none}
+.chip:hover{box-shadow:var(--shadow)}
+.gap{
+  border:1px dashed var(--crimson);background:var(--crimson-wash);border-radius:2px;
+  padding:.85rem 1.1rem;display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline;
+}
+.gap b{font-size:.85rem;color:var(--crimson);font-family:var(--f-display);font-weight:700;white-space:nowrap}
+.gap span{font-size:.82rem;color:var(--ink-2);line-height:1.8}
+.spans{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:.25rem}
+.span{background:var(--surface-2);border:1px solid var(--rule-soft);border-radius:2px;padding:.8rem 1rem;font-size:.82rem;color:var(--ink-2)}
+.span b{display:block;font-family:var(--f-display);font-size:.88rem;color:var(--ink);margin-bottom:.2rem}
+.archnote{font-size:.8rem;color:var(--faint);margin-top:1rem;line-height:1.8;max-width:var(--measure)}
+
+/* ---------- premise list ---------- */
+.premise{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:2rem}
+.premise > div{border-top:2px solid var(--rule);padding-top:.9rem;display:flex;flex-direction:column;gap:.45rem}
+.premise .p-in{border-top-color:var(--crimson)}
+.premise .p-core{border-top-color:var(--blue)}
+.premise .p-out{border-top-color:var(--amber)}
+.premise .zone{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;font-weight:600;color:var(--faint)}
+
+/* ---------- flow figure ---------- */
+.flowfig{margin:2.75rem 0 0}
+.flowfig__cap{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);font-weight:600;margin-bottom:.9rem}
+.flowfig__scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:1.25rem}
+.flowfig__scroll > svg{display:block;width:100%;min-width:820px;height:auto}
+.dg-label{font-family:var(--f-body);font-size:13px;font-weight:700;fill:var(--ink)}
+.dg-mark-in{fill:var(--crimson)}
+.dg-mark-core{fill:var(--blue)}
+.dg-mark-out{fill:var(--amber)}
+.dg-tag{fill:var(--surface-2);stroke:var(--rule);stroke-width:1}
+.dg-tagtxt{font-family:var(--f-body);font-size:12px;font-weight:700;fill:var(--ink)}
+.dg-box{fill:var(--surface);stroke:var(--rule);stroke-width:1}
+.dg-t{font-family:var(--f-body);font-size:12.5px;fill:var(--ink-2)}
+.dg-m{font-family:var(--f-body);font-size:11px;fill:var(--faint)}
+.dg-core{fill:var(--navy);stroke:var(--rule);stroke-width:1}
+.dg-corebody{fill:var(--navy)}
+.dg-coreline{stroke:var(--rule);stroke-width:1}
+.dg-corelit{fill:rgba(255,255,255,.10)}
+.dg-coretxt{font-family:var(--f-body);font-size:12px;fill:#CFE0F0}
+.dg-coretxt-lg{font-family:var(--f-display);font-size:17px;font-weight:700;fill:#fff}
+.dg-coremute{font-family:var(--f-body);font-size:11px;fill:#93AEC8}
+.dg-corewarn{font-family:var(--f-body);font-size:13.5px;font-weight:700;fill:#F0B95C}
+.dg-coredv{stroke:rgba(255,255,255,.22);stroke-width:1}
+.dg-pillar{fill:var(--blue-wash);stroke:var(--blue);stroke-width:1}
+.dg-pillarhd{font-family:var(--f-body);font-size:13px;font-weight:700;fill:var(--blue)}
+.dg-pillartxt{font-family:var(--f-body);font-size:11px;fill:var(--ink-2)}
+.dg-node{fill:var(--surface);stroke:var(--blue);stroke-width:1}
+.dg-nodetxt{font-family:var(--f-body);font-size:12.5px;font-weight:500;fill:var(--ink)}
+.dg-arrow-in{fill:var(--crimson)}
+.dg-arrow-out{fill:var(--amber)}
+.dg-atxt-in{font-family:var(--f-mono);font-size:10.5px;font-weight:600;fill:var(--crimson)}
+.dg-atxt-out{font-family:var(--f-mono);font-size:10.5px;font-weight:600;fill:var(--amber)}
+.premise h4{font-size:.98rem;color:var(--ink)}
+.premise p{font-size:.86rem;color:var(--muted);line-height:1.85}
+
+/* ---------- risk chapters ---------- */
+.risks{display:flex;flex-direction:column;gap:2.5rem}
+.risk{background:var(--surface);border:1px solid var(--rule);border-radius:3px;overflow:hidden;box-shadow:var(--shadow)}
+.risk__head{padding:1.5rem var(--pad) 1.35rem;background:var(--surface-2);border-bottom:1px solid var(--rule)}
+.risk__num{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;font-weight:600;color:var(--crimson)}
+.risk__head h3{font-size:clamp(1.12rem,2.4vw,1.4rem);margin-top:.5rem;max-width:34ch;color:var(--ink)}
+.risk__where{
+  margin-top:.7rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;color:var(--muted);
+}
+.risk__grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule-soft)}
+@media (min-width:900px){.risk__grid{grid-template-columns:repeat(3,1fr)}}
+.rblock{background:var(--surface);padding:1.4rem var(--pad);display:flex;flex-direction:column;gap:.7rem}
+.rblock h4{
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;font-weight:600;
+  padding-bottom:.5rem;border-bottom:1px solid var(--rule-soft);
+}
+.rblock--why h4{color:var(--crimson)}
+.rblock--case h4{color:var(--amber)}
+.rblock--fix h4{color:var(--blue)}
+.rblock p{font-size:.87rem;color:var(--ink-2);line-height:1.9}
+.rblock ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.5rem}
+.rblock li{font-size:.86rem;color:var(--ink-2);line-height:1.85}
+.rblock li::marker{color:var(--faint)}
+.casetag{
+  font-family:var(--f-mono);font-size:.7rem;font-weight:600;color:var(--muted);
+  display:block;margin-bottom:.15rem;letter-spacing:.03em;
+}
+
+/* ---------- steps ---------- */
+.steps{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:2rem}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.step__n{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue);font-weight:600}
+.step h4{font-size:1rem;color:var(--ink)}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.8}
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;margin-top:1.5rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.86rem}
+th,td{padding:.8rem 1rem;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top;line-height:1.75}
+thead th{background:var(--surface-2);font-family:var(--f-body);font-weight:700;font-size:.8rem;color:var(--ink);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
+.price{color:var(--blue);font-weight:600}
+.was{color:var(--faint);text-decoration:line-through;font-size:.8em;margin-left:.4rem}
+
+/* ---------- paas ---------- */
+.paas{background:var(--navy);color:var(--navy-ink)}
+.paas .section__num{color:#7FC0FF}
+.paas h2{color:#fff}
+.paas .section__sub{color:#B9CBDD}
+.flow{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:.5rem}
+.flowcard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:1.4rem;display:flex;flex-direction:column;gap:.55rem}
+.flowcard b{font-family:var(--f-mono);font-size:.95rem;letter-spacing:.06em;color:#7FC0FF;font-weight:600}
+.flowcard strong{font-family:var(--f-display);font-size:.98rem;color:#fff;font-weight:600}
+.flowcard p{font-size:.85rem;color:#B9CBDD;line-height:1.85}
+.paas .tablewrap{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.14)}
+.paas thead th{background:rgba(255,255,255,.07);color:#fff}
+.paas th,.paas td{border-bottom-color:rgba(255,255,255,.1);color:#CEDCEA}
+.paas .price{color:#7FC0FF}
+.paas .was{color:#7C93AB}
+.strengths{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:2rem}
+.strength{border-top:2px solid #7FC0FF;padding-top:.9rem;display:flex;flex-direction:column;gap:.4rem}
+.strength b{font-family:var(--f-display);font-size:.98rem;color:#fff;font-weight:600}
+.strength p{font-size:.85rem;color:#B9CBDD;line-height:1.85}
+
+/* ---------- cta ---------- */
+.cta{
+  margin-top:2.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+  border-radius:3px;padding:clamp(1.5rem,4vw,2.5rem);
+  display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;
+}
+.cta__copy{flex:1 1 22rem;display:flex;flex-direction:column;gap:.6rem}
+.cta__copy strong{font-family:var(--f-display);font-size:1.15rem;color:#fff;font-weight:600}
+.cta__copy p{font-size:.87rem;color:#B9CBDD;line-height:1.85}
+.cta__req{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem}
+.req{font-family:var(--f-mono);font-size:.7rem;padding:.2rem .55rem;border:1px solid rgba(255,255,255,.24);border-radius:2px;color:#CEDCEA}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:#0057B8;color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;
+  padding:.95rem 1.9rem;border-radius:3px;border:1px solid #1E74D8;
+  transition:background .18s ease, transform .18s ease;white-space:nowrap;
+}
+.btn:hover{background:#0069DB;transform:translateY(-1px)}
+.btn__arrow{font-family:var(--f-mono)}
+.cta__note{flex:1 1 100%;font-size:.75rem;color:#8FA8C0;line-height:1.8;border-top:1px solid rgba(255,255,255,.12);padding-top:1rem}
+
+/* ---------- sources ---------- */
+.sources{background:var(--surface-2);border-top:1px solid var(--rule)}
+.sources ol{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.65rem;max-width:var(--measure)}
+.sources li{font-size:.8rem;color:var(--muted);line-height:1.85}
+.disclaimer{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--rule);font-size:.76rem;color:var(--faint);line-height:1.9;max-width:var(--measure)}
+footer.foot{background:var(--navy);color:#8FAECD;padding-block:2rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em}
+footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="cover">
+  <div class="wrap cover__inner">
+    <div class="cover__brand">
+      <b>SB OAI JAPAN</b>
+      <span class="eyebrow">業界別 AIサイバーセキュリティ・レポート ／ メガバンク編</span>
+    </div>
+    <h1>メガバンクには、<br>いま、<em>診る理由</em>がある。</h1>
+    <p class="cover__lede">
+      フロンティアAIは、27年間だれにも見つけられなかった脆弱性を数分で掘り起こす。
+      その能力を、攻撃側はすでに手にしている。本レポートは、メガバンクの情報システムを5つの層に分解し、
+      フロンティアAI時代に露出するリスクがどこに存在するのかを構成図の上にマッピングしたうえで、
+      「なぜ、いま顕在化したのか」「同業界で実際に何が起きたのか」「何を講じるべきか」を章ごとに示す。
+    </p>
+    <div class="cover__meta">
+      <span>2026年8月 発行</span>
+      <span>全5章</span>
+      <span>対象：CIO / CISO / リスク管理責任者</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ サマリー ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">SUMMARY</span>
+      <h2>本レポートの結論</h2>
+      <p class="section__sub">メガバンクが直面している変化は「攻撃が増えた」ことではない。攻撃と防御のあいだにあった時間差が、片側だけ消えたことにある。</p>
+    </div>
+
+    <div class="sumgrid">
+      <div class="sumcard">
+        <span class="sumcard__k">結論 01</span>
+        <h3>攻撃側は、すでにフロンティアAIを実装している</h3>
+        <p>海外のAI開発事業者からは、AIの悪用によりサイバー攻撃の80〜90%を自動的に実行できるとの報告がなされている。政府の年次報告も、フロンティアAIによるサイバーセキュリティ性能の急速な向上に「危機感を持って迅速に取り組むことが必要不可欠」と明記した。攻撃の高度化は予測ではなく、観測されている事実である。</p>
+      </div>
+      <div class="sumcard">
+        <span class="sumcard__k">結論 02</span>
+        <h3>リスクは勘定系そのものより、層と層の結節点に集中する</h3>
+        <p>メガバンクの弱点は、最も守られている勘定系の中心ではない。チャネルと業務系をつなぐFEP・MQ・API GW・ESB、全銀・日銀ネット・SWIFTへの対外接続口、そしてグループ会社・委託先との連携口──いずれも最も古く、最も触りにくいコードが残る場所である。</p>
+      </div>
+      <div class="sumcard">
+        <span class="sumcard__k">結論 03</span>
+        <h3>必要なのは「見つける」の高速化ではなく「直す」の自動化</h3>
+        <p>AI診断はソースコード1,000万行あたり平均約280件の脆弱性を返し、うち約25%が早期対策を要する高リスクと判定される。検出量が人手のトリアージ能力を超えた時点で、ボトルネックは発見側から修復側へ移る。</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat__v">280<span style="font-size:.5em;font-weight:500">件</span></span><span class="stat__l">ソースコード1,000万行あたりに検出される脆弱性の平均件数</span></div>
+      <div class="stat"><span class="stat__v">25<span style="font-size:.5em;font-weight:500">%</span></span><span class="stat__l">うち「早期対策が必要な可能性のある高リスク」と判定された割合</span></div>
+      <div class="stat"><span class="stat__v">27<span style="font-size:.5em;font-weight:500">年</span></span><span class="stat__l">フロンティアAIが発見した、サーバーOSに潜伏していた脆弱性の未発見期間</span></div>
+      <div class="stat"><span class="stat__v is-calm">3<span style="font-size:.5em;font-weight:500">億件/月</span></span><span class="stat__l">ソフトバンクが自社で観測しているシステムへの偵察行為</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第1章 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">第 1 章 ／ 共通</span>
+      <h2>フロンティアAIは、サイバーセキュリティの前提を書き換えた</h2>
+      <p class="section__sub">この章は全業界に共通する。第2章以降で扱うメガバンク固有のリスクは、すべてここで説明する構造変化の帰結として現れる。</p>
+    </div>
+
+    <div class="prose">
+      <h3>1-1　攻撃の準備工程が、人間の手から離れた</h3>
+      <p>これまでサイバー攻撃には、標的の調査、侵入経路の設計、攻撃コードの作成という、いずれも専門知識と時間を要する工程が必要だった。この工程こそが、防御側に与えられていた猶予である。フロンティアAIはその猶予を消し去った。標的組織に対する情報収集、標的を信頼させるためのおとりの作成、マルウェア開発に至るまで、攻撃のあらゆる過程でAIが悪用されていることが確認されている。</p>
+      <p>結果として起きているのは、攻撃の高度化だけではない。<strong>効率化と量産化</strong>である。かつて国家背景の攻撃グループしか実行できなかった水準の攻撃が、経験やリソースの少ない攻撃者にも開かれた。攻撃者の数と、一人あたりが同時に狙える標的数が、同時に増えている。</p>
+
+      <h3>1-2　20年以上だれも見つけられなかった脆弱性が、次々と掘り起こされている</h3>
+      <p>フロンティアAIの能力を最も端的に示すのは、既知の脆弱性を速く見つけることではなく、<strong>未知の脆弱性を能動的に探索できる</strong>ことである。実際に、サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間にわたり発見されずにいた脆弱性が、フロンティアAIによって検出されている。</p>
+      <p>この事実がメガバンクにとって持つ意味は明確である。長年にわたり安定稼働してきたこと、大きな事故を起こしていないことは、もはや安全性の証明にならない。むしろ稼働年数が長いシステムほど、掘り起こされる余地を多く抱えている。</p>
+
+      <h3>1-3　「見つける」と「直す」のあいだに、致命的な時間差が開いた</h3>
+      <p>攻撃側は脆弱性の探索から攻撃コードの生成までを数分から数秒で行う。一方で防御側の実務は、シグネチャの定義更新を待ち、月次のパッチ適用サイクルを回し、ログを目視で確認する。この非対称は、担当者の努力や人員の増強で埋まる性質のものではない。防御の速度が構造的にヒューマンスピードに固定されているからである。</p>
+      <p>近年はセキュリティ製品にもAIが搭載され、脆弱性の検知や修正案の提示は自動化されつつある。しかしそこで自動化されたのは「見つける」までであり、<strong>修正コードの適用という最も時間を要する工程は依然として人間側に残されている</strong>。攻撃側と同じ世代のAIを、修復の実行まで通して使えるかどうかが分岐点になる。</p>
+
+      <h3>1-4　規制はすでに動き出している</h3>
+      <p>政府は、フロンティアAIモデルによるサイバーセキュリティ性能が向上するなかでも我が国のサイバーセキュリティが確保されるよう、AI性能の高度化を踏まえた政府全体としての対策パッケージ「Project YATA-Shield」に基づく取組を進めている。重要インフラ分野については、事業者が分野・事業者横断的に講ずべき対策の基準として「重要インフラのサイバーセキュリティ対策のための統一基準」の施行が2026年10月に予定されている。</p>
+      <p>金融分野はそのなかでも先行している。監督官庁からの要請は、経営陣の直接関与のもとで、優先システムの特定、リスクベースでの脆弱性の優先順位付け、仮想パッチを含む多層防御、共同運営システムの責任分担の明確化、ベンダー側リソース確保の確認といった具体項目に及ぶ。<strong>「要請が来てから動く」という姿勢そのものが、ガバナンス上の説明責任を問われる局面に入っている。</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第2章 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">第 2 章 ／ メガバンク</span>
+      <h2>リスクはどこにあるか──5層構成でのマッピング</h2>
+      <p class="section__sub">メガバンクの情報システムを5層に分解し、第3章で扱う5つのリスクがどの層に位置するかを示す。あわせて、他業態と条件が異なる「入口・本体・出口」の3点を図で整理する。</p>
+    </div>
+
+    <div class="arch">
+      <div class="layer">
+        <div class="layer__id"><b>① チャネル層</b><span>FRONT</span></div>
+        <div class="layer__body">
+          営業店端末 ／ ATM・CD ／ コンタクトセンター ／ Web・アプリ ／ オープンAPI・BaaS ／ 法人向けEB・CMS ／ 代理店端末 ／ 外部プラットフォーム連携
+          <div class="layer__chips"><span class="chip"><a href="#risk-1">リスク 01</a></span></div>
+        </div>
+      </div>
+
+      <div class="gap">
+        <b>↓ 最大の隙間</b>
+        <span>FEP・MQ・API GW・ESB（最大のレガシー債務）／ テレワーク用VPN・リモート接続基盤 ／ グループ会社・委託先との連携口</span>
+      </div>
+
+      <div class="layer">
+        <div class="layer__id"><b>② 業務系（周辺系）</b><span>BUSINESS</span></div>
+        <div class="layer__body">融資・審査 ／ 外為 ／ 投信・窓販 ／ 法人業務 ／ CRM ／ ワークフロー・稟議 ／ グループ横断の顧客情報連携</div>
+      </div>
+
+      <div class="layer layer--core">
+        <div class="layer__id"><b>③ コア系（勘定系）</b><span>MISSION CRITICAL</span></div>
+        <div class="layer__body">
+          元帳（口座・契約）／ リアルタイム取引（OLTP）／ 日次・月次バッチ ／ 資金決済・付替 ／ 手数料・利息計算
+          <div class="layer__chips"><span class="chip"><a href="#risk-2">リスク 02</a></span></div>
+        </div>
+      </div>
+
+      <div class="layer layer--ext">
+        <div class="layer__id"><b>④ 対外接続系</b><span>EXTERNAL LINKS</span></div>
+        <div class="layer__body">
+          全銀システム ／ 日銀ネット ／ CAFIS ／ ANSER ／ SWIFT ／ 取引所 ／ JASDEC・JSCC ／ 国際ブランドNW ／ 海外拠点・現地決済網
+          <div class="layer__chips"><span class="chip"><a href="#risk-3">リスク 03</a></span></div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div class="layer__id"><b>⑤ 情報系</b><span>DATA</span></div>
+        <div class="layer__body">DWH・データレイク・MDM ／ リスク・ALM ／ 規制報告 ／ AML・不正検知 ／ BI ／ 生成AI基盤</div>
+      </div>
+
+      <div class="spans">
+        <div class="span"><b>縦断A：共通基盤</b>ID・統合認証 ／ 統合監視・ジョブ ／ 帳票 ／ セキュリティ ／ BCP・DR</div>
+        <div class="span"><b>縦断B：リスク＆コンプライアンス</b>FISC安全対策基準 ／ 金融分野サイバーセキュリティGL ／ 監督指針・内部統制</div>
+      </div>
+    </div>
+
+    <p class="archnote">※ リスク04（グループ会社・委託先経由の侵入）とリスク05（修復のボトルネック）は特定の層に閉じず、図全体を横断して発生する。</p>
+
+    <figure class="flowfig">
+      <p class="flowfig__cap">メガバンク固有の3条件 ── 入口・本体・出口</p>
+      <div class="flowfig__scroll">
+<svg viewBox="0 0 1000 420" role="img" aria-labelledby="flowTitle flowDesc">
+<title id="flowTitle">メガバンク固有の3条件</title>
+<desc id="flowDesc">グループ会社と委託先という広い入口から、自前で保有する巨大な勘定系へ侵入経路がつながり、対外接続系を通じて取引先金融機関・決済・清算インフラ・社会機能へ被害が波及する構造を示した図。</desc>
+
+<rect class="dg-mark-in" x="30" y="19" width="9" height="9"/>
+<text class="dg-label" x="45" y="28">① 入口：グループ・委託先</text>
+<rect class="dg-mark-core" x="398" y="19" width="9" height="9"/>
+<text class="dg-label" x="413" y="28">② 本体：止められない</text>
+<rect class="dg-mark-out" x="780" y="19" width="9" height="9"/>
+<text class="dg-label" x="795" y="28">③ 出口：自社の外へ</text>
+
+<rect class="dg-tag" x="30" y="54" width="126" height="25" rx="2"/>
+<text class="dg-tagtxt" x="93" y="71" text-anchor="middle">グループ会社</text>
+<rect class="dg-box" x="30" y="79" width="262" height="112" rx="2"/>
+<text class="dg-t" x="48" y="112">信託・証券・カード・リース</text>
+<text class="dg-t" x="48" y="138">海外拠点・現地法人</text>
+<text class="dg-m" x="48" y="166">業務システムで本体と連結</text>
+
+<rect class="dg-tag" x="30" y="246" width="168" height="25" rx="2"/>
+<text class="dg-tagtxt" x="114" y="263" text-anchor="middle">委託先・外部ベンダー</text>
+<rect class="dg-box" x="30" y="271" width="262" height="112" rx="2"/>
+<text class="dg-t" x="48" y="304">開発・運用の委託先</text>
+<text class="dg-t" x="48" y="330">保守・データセンター事業者</text>
+<text class="dg-m" x="48" y="358">1,800システム中1,100が外部管理</text>
+
+<polygon class="dg-arrow-in" points="296,124 370,124 370,113 398,135 370,157 370,146 296,146"/>
+<text class="dg-atxt-in" x="333" y="108" text-anchor="middle">侵入</text>
+<polygon class="dg-arrow-in" points="296,316 370,316 370,305 398,327 370,349 370,338 296,338"/>
+<text class="dg-atxt-in" x="333" y="300" text-anchor="middle">侵入</text>
+
+<ellipse class="dg-core" cx="485" cy="350" rx="87" ry="24"/>
+<rect class="dg-corebody" x="398" y="100" width="174" height="250"/>
+<line class="dg-coreline" x1="398" y1="100" x2="398" y2="350"/>
+<line class="dg-coreline" x1="572" y1="100" x2="572" y2="350"/>
+<ellipse class="dg-core" cx="485" cy="100" rx="87" ry="24"/>
+<ellipse class="dg-corelit" cx="485" cy="100" rx="87" ry="24"/>
+<text class="dg-coretxt-lg" x="485" y="156" text-anchor="middle">勘定系</text>
+<text class="dg-coretxt" x="485" y="186" text-anchor="middle">自前保有・数千万行規模</text>
+<text class="dg-coretxt" x="485" y="210" text-anchor="middle">COBOL中心</text>
+<text class="dg-coretxt" x="485" y="234" text-anchor="middle">「触るのが怖い」コード</text>
+<line class="dg-coredv" x1="420" y1="258" x2="550" y2="258"/>
+<text class="dg-coremute" x="485" y="286" text-anchor="middle">24時間365日</text>
+<text class="dg-corewarn" x="485" y="310" text-anchor="middle">停止できない</text>
+
+<polygon class="dg-arrow-out" points="576,214 592,214 592,205 606,222 592,239 592,230 576,230"/>
+<text class="dg-atxt-out" x="591" y="196" text-anchor="middle">波及</text>
+
+<ellipse class="dg-pillar" cx="680" cy="222" rx="70" ry="168"/>
+<text class="dg-pillarhd" x="680" y="188" text-anchor="middle">対外接続系</text>
+<text class="dg-pillartxt" x="680" y="214" text-anchor="middle">全銀システム</text>
+<text class="dg-pillartxt" x="680" y="236" text-anchor="middle">日銀ネット</text>
+<text class="dg-pillartxt" x="680" y="258" text-anchor="middle">SWIFT・CAFIS</text>
+
+<polygon class="dg-arrow-out" points="719,76 764,76 764,70 778,80 764,90 764,84 719,84"/>
+<polygon class="dg-arrow-out" points="749,171 764,171 764,165 778,175 764,185 764,179 749,179"/>
+<polygon class="dg-arrow-out" points="749,266 764,266 764,260 778,270 764,280 764,274 749,274"/>
+<polygon class="dg-arrow-out" points="719,361 764,361 764,355 778,365 764,375 764,369 719,369"/>
+
+<ellipse class="dg-node" cx="880" cy="80" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="85" text-anchor="middle">取引先金融機関</text>
+<ellipse class="dg-node" cx="880" cy="175" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="180" text-anchor="middle">企業・個人の決済</text>
+<ellipse class="dg-node" cx="880" cy="270" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="275" text-anchor="middle">証券・清算インフラ</text>
+<ellipse class="dg-node" cx="880" cy="365" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="370" text-anchor="middle">社会機能・生活基盤</text>
+</svg>
+      </div>
+    </figure>
+
+    <div class="premise">
+      <div class="p-in">
+        <span class="zone">① 入口</span>
+        <h4>入口は、本体の外側に広がっている</h4>
+        <p>グループ会社と委託先を含めれば接続点は数百から数千に及ぶ。攻撃者は本体を正面から狙う必要がない。ソフトバンクが自社を診断した際、対象1,800システムのうち1,100システムが外部ベンダー管理下にあった。</p>
+      </div>
+      <div class="p-core">
+        <span class="zone">② 本体</span>
+        <h4>本体は大きく、止められない</h4>
+        <p>共同センターを利用する地域金融機関と異なり、メガバンクは勘定系を自社で保有・改修してきた。コード資産は数千万行規模に達し、その多くがCOBOLで書かれている。稼働実績を根拠に「触らない」運用で守られてきた領域である。</p>
+      </div>
+      <div class="p-out">
+        <span class="zone">③ 出口</span>
+        <h4>出口は、社会につながっている</h4>
+        <p>対外接続系は業界インフラへの参加口であると同時に、被害が外部へ波及する経路でもある。決済ネットワークの結節点が停止すれば、影響は取引先金融機関と最終顧客に連鎖する。メガバンクの障害は、定義上つねに社会的影響を伴う。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第3章 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">第 3 章 ／ リスク詳細</span>
+      <h2>5つのリスクと、いま講じるべき対策</h2>
+      <p class="section__sub">各リスクについて、「なぜフロンティアAIによって顕在化したのか」「同業界で実際に何が起きたのか」「何を講じるべきか」の3点で整理する。</p>
+    </div>
+
+    <div class="risks">
+
+      <!-- リスク1 -->
+      <article class="risk" id="risk-1">
+        <div class="risk__head">
+          <span class="risk__num">リスク 01</span>
+          <h3>外部接点とFEP・API GW──「最大の隙間」が最初に破られる</h3>
+          <p class="risk__where">構成図上の位置：① チャネル層 ／ 最大の隙間（FEP・MQ・API GW・ESB・VPN）</p>
+        </div>
+        <div class="risk__grid">
+          <div class="rblock rblock--why">
+            <h4>なぜ、いま顕在化したのか</h4>
+            <p>チャネル層と内部システムをつなぐ結節点は、外部から到達可能でありながら、最も古いコードが残る場所である。オープンAPIやBaaSの拡大で外部接点は増え続けたが、その足元のFEPやESBは更改されないまま使われ続けてきた。</p>
+            <p>フロンティアAIは、この「外から見える面」を継続的かつ網羅的に走査し、これまで人手の診断では到達しなかった深さの設定不備や実装の欠陥を能動的に探し出す。年に一度の脆弱性診断で確認していた範囲は、攻撃側にとって常時観測の対象に変わった。</p>
+          </div>
+          <div class="rblock rblock--case">
+            <h4>実際に起きたこと</h4>
+            <ul>
+              <li><span class="casetag">2025年4月／国内・電気通信事業者</span>法人向けメールセキュリティサービスがゼロデイ脆弱性を突かれ、メールアカウント・パスワード・メール本文が流出。共通基盤が破られたため、被害は利用企業側へ一斉に及んだ。</li>
+              <li><span class="casetag">2024年2月／米国・医療決済基盤</span>多要素認証が有効化されていないリモート接続ポータルに、窃取済みの認証情報でログインされ侵入。9日間の潜伏を経てランサムウェアが展開され、決済・請求処理が全面停止した。</li>
+            </ul>
+          </div>
+          <div class="rblock rblock--fix">
+            <h4>講じるべき対策</h4>
+            <ul>
+              <li><strong>外部接点のブラックボックス診断を先行実施する。</strong>対象URL・FQDN等のアクセス情報のみで外部から診断できるため、資産台帳の整備完了を待たずに着手できる。</li>
+              <li><strong>多要素認証の網羅状況を、例外まで含めて棚卸しする。</strong>方針として全外部公開システムに適用していても、運用の過程で無効化された1台が侵入口になる。</li>
+              <li><strong>WAF等による仮想パッチで、コード改修までの露出時間を埋める。</strong>監督官庁の要請項目にも多層防御として明記されている。</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- リスク2 -->
+      <article class="risk" id="risk-2">
+        <div class="risk__head">
+          <span class="risk__num">リスク 02</span>
+          <h3>勘定系の巨大レガシーコード──「触るのが怖い」まま放置された資産</h3>
+          <p class="risk__where">構成図上の位置：③ コア系（勘定系）</p>
+        </div>
+        <div class="risk__grid">
+          <div class="rblock rblock--why">
+            <h4>なぜ、いま顕在化したのか</h4>
+            <p>数千万行規模のコードを人間が読み切ることは現実的でない。だからこそ勘定系は、稼働実績を根拠に「動いているものには触らない」という運用で守られてきた。この前提が崩れた。</p>
+            <p>フロンティアAIは大量のコードを短時間で解析し、設計者すら認識していなかった欠陥を掘り起こす。これは防御側だけの能力ではない。<strong>行数の多さは、もはや攻撃者にとっての障壁ではなくなった。</strong>むしろ長期間だれの目にも触れていない領域ほど、未知の脆弱性が残存している可能性が高い。</p>
+          </div>
+          <div class="rblock rblock--case">
+            <h4>実際に起きたこと</h4>
+            <ul>
+              <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOS（OpenBSD）で27年間、ファイル共有機能（FreeBSD）で17年間、動画・音声処理ソフト（FFmpeg）で16年間、いずれも未発見だった脆弱性がAIにより検出された。長期の安定稼働は安全性を意味しない。</li>
+              <li><span class="casetag">2023年10月／国内・銀行間決済インフラ</span>全国銀行データ通信システムで大規模な障害が発生し、複数の金融機関で送金が滞留。サイバー攻撃ではないが、基幹の一点が止まったときの影響範囲の大きさを示した。</li>
+            </ul>
+          </div>
+          <div class="rblock rblock--fix">
+            <h4>講じるべき対策</h4>
+            <ul>
+              <li><strong>ソースコード診断を、行数を理由に諦めない。</strong>従量課金であれば対象範囲を段階的に広げられる。まず外部接点を持つ領域と機密情報を扱う領域から着手し、基幹へ広げる進め方が現実的である。</li>
+              <li><strong>診断で終わらせず、修正コード案の提示までを要件に含める。</strong>指摘だけを受け取っても、勘定系では改修に踏み切れない。</li>
+              <li><strong>中長期にはAIが解析・修正しやすいコードへの刷新（モダナイゼーション）を計画に織り込む。</strong>脆弱性が多すぎるシステムは、個別対応より構造の刷新のほうが早い。</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- リスク3 -->
+      <article class="risk" id="risk-3">
+        <div class="risk__head">
+          <span class="risk__num">リスク 03</span>
+          <h3>対外接続系──業界インフラへの参加口が、被害の伝播経路になる</h3>
+          <p class="risk__where">構成図上の位置：④ 対外接続系（全銀システム・日銀ネット・SWIFT・CAFIS 等）</p>
+        </div>
+        <div class="risk__grid">
+          <div class="rblock rblock--why">
+            <h4>なぜ、いま顕在化したのか</h4>
+            <p>対外接続系は、仕様が公開または準公開されており、電文形式や処理手順が定型である。この定型性は、これまで相互接続性という利点として理解されてきた。AIにとっては、解析と模倣の容易さを意味する。</p>
+            <p>加えてこの層は、自行が侵害された場合に被害を外部へ流し出す経路であると同時に、接続先が侵害された場合に被害を受け取る経路でもある。<strong>防御の境界が自社の内側で完結しない</strong>点が、他の層と決定的に異なる。</p>
+          </div>
+          <div class="rblock rblock--case">
+            <h4>実際に起きたこと</h4>
+            <ul>
+              <li><span class="casetag">2016年／バングラデシュ中央銀行</span>SWIFT接続端末を経由した不正送金により約8,100万ドルが流出。国際送金網そのものではなく、参加行側の端末環境が突破口となった。</li>
+              <li><span class="casetag">2025年2月／暗号資産取引所 Bybit</span>約15億ドル（当時約2,300億円）相当の暗号資産が流出。米連邦捜査局は北朝鮮のサイバー攻撃グループの関与を特定・公表した。国家背景の攻撃者にとって金融機関は最優先の標的である。</li>
+            </ul>
+          </div>
+          <div class="rblock rblock--fix">
+            <h4>講じるべき対策</h4>
+            <ul>
+              <li><strong>接続系のゲートウェイと周辺端末を、優先度の最上位で診断対象に指定する。</strong>本体の勘定系より先に、接続の出入口を確認する。</li>
+              <li><strong>共同運営システムについて、責任分担を文書で明確化する。</strong>監督官庁の要請項目にも含まれており、対応実績として説明可能な形で残す。</li>
+              <li><strong>接続先の停止を前提とした業務継続手順を、机上でなく実地で検証する。</strong>接続先の障害は自行の努力では防げない。</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- リスク4 -->
+      <article class="risk" id="risk-4">
+        <div class="risk__head">
+          <span class="risk__num">リスク 04</span>
+          <h3>グループ会社・委託先という迂回路──正面から入る必要がない</h3>
+          <p class="risk__where">構成図上の位置：全層を横断（最大の隙間／縦断A 共通基盤）</p>
+        </div>
+        <div class="risk__grid">
+          <div class="rblock rblock--why">
+            <h4>なぜ、いま顕在化したのか</h4>
+            <p>グループ会社と委託先を含めれば、接続点は数百から数千に及ぶ。従来、そのすべてを継続的に調べ上げることは攻撃者にとってもコストが高く、実質的な防壁として機能していた。</p>
+            <p>AIによる偵察の自動化が、この防壁を無効化した。<strong>攻撃者は連結する全社を並列に走査し、最も守りの薄い一社を選び出せる。</strong>本体のセキュリティ投資額は、この経路に対しては意味を持たない。</p>
+          </div>
+          <div class="rblock rblock--case">
+            <h4>実際に起きたこと</h4>
+            <ul>
+              <li><span class="casetag">2025年10月／国内・大手通販事業者</span>業務委託先のリモート接続用アカウント（多要素認証なし）が悪用されて侵入され、ランサムウェアにより受注・出荷が停止。配送を委託していた複数の小売企業の通販事業も連鎖的に停止し、医療・介護現場の物品供給にも影響が及んだ。</li>
+              <li><span class="casetag">2024年6月／国内・大手出版グループ</span>ウェブサービスの停止にとどまらず書籍流通事業にまで影響が波及。社内外約25万人分のデータが窃取され、一部がダークウェブ上に公開された。</li>
+            </ul>
+          </div>
+          <div class="rblock rblock--fix">
+            <h4>講じるべき対策</h4>
+            <ul>
+              <li><strong>診断の範囲を、本体ではなくグループ・委託先を含む連結の単位で定義する。</strong>本体だけを診断しても、実際の侵入口は対象外に残る。</li>
+              <li><strong>委託先の接続アカウントについて、多要素認証と権限の棚卸しを取引条件として要求する。</strong>直近の重大事案は、いずれもこの一点を起点としている。</li>
+              <li><strong>グループ横断で診断・修復の基準を統一する。</strong>各社が個別に選定すると、水準のばらつきがそのまま弱点になる。</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- リスク5 -->
+      <article class="risk" id="risk-5">
+        <div class="risk__head">
+          <span class="risk__num">リスク 05</span>
+          <h3>検出したあとに止まる──修復がボトルネックになる</h3>
+          <p class="risk__where">構成図上の位置：全層を横断（縦断A 共通基盤 ／ 縦断B ガバナンス）</p>
+        </div>
+        <div class="risk__grid">
+          <div class="rblock rblock--why">
+            <h4>なぜ、いま顕在化したのか</h4>
+            <p>AI診断の導入は、これまで見えていなかった脆弱性を可視化する。同時に、組織が処理しきれない量の指摘をもたらす。ソフトバンクが自社の1,800システムを検証した際には10,500件の脆弱性が検出され、うち4,000件が要対応項目として特定された。</p>
+            <p>ここで発生するのは、担当者の疲弊だけではない。<strong>「検出したが修復していない」という記録が、監査と訴訟の局面で不利に働く。</strong>可視化した以上、放置は認識のある不作為と評価されうる。</p>
+          </div>
+          <div class="rblock rblock--case">
+            <h4>実際に起きたこと</h4>
+            <ul>
+              <li><span class="casetag">ソフトバンク自社での検証</span>対象1,800システム（社内管理700／外部ベンダー管理1,100）に対し、検出脆弱性10,500件のうち4,000件を要対応項目として短期間で特定。検出そのものではなく、その後の処理設計が課題となった。</li>
+              <li><span class="casetag">業界共通の実態</span>アラート疲れと専門人材の不足は各社で常態化しており、長年運用されたレガシーコードほど「触るのが怖い」ものとして修正が後回しにされる傾向がある。</li>
+            </ul>
+          </div>
+          <div class="rblock rblock--fix">
+            <h4>講じるべき対策</h4>
+            <ul>
+              <li><strong>診断サービスの選定要件に「対応優先度の判定」と「修正コード案の提示」を必須で含める。</strong>指摘一覧だけを受け取る契約では、ボトルネックは解消しない。</li>
+              <li><strong>パッチ適用までを外部化できる体制を確保する。</strong>自社エンジニアの増員を前提とした計画は、人材市場の実態から成立しにくい。</li>
+              <li><strong>継続再診断を前提に設計する。</strong>一度きりの診断は、実施した時点の状態しか証明しない。要請への適合を継続的に示すには、再診断が組み込まれている必要がある。</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第4章 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">第 4 章 ／ 着手</span>
+      <h2>どこから診るか</h2>
+      <p class="section__sub">全システムを同時に診断することは、規模の面でも予算の面でも現実的ではない。実際に診断を実施している企業は、次の3つの観点で対象を選定している。</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step__n">選定軸 01</span>
+        <h4>外部接点のあるシステム</h4>
+        <p>会員サイト・申込サイト、法人向けEB、オープンAPI、顧客ポータル。外部から攻撃を受けやすく、アクセス情報のみで実施できるブラックボックス診断と組み合わせやすい。</p>
+      </div>
+      <div class="step">
+        <span class="step__n">選定軸 02</span>
+        <h4>機密情報を扱うシステム</h4>
+        <p>顧客管理、契約・申込・決済情報、問い合わせ履歴。情報漏えい・不正閲覧の影響が大きく、認証・権限管理の不備を確認する必要がある。</p>
+      </div>
+      <div class="step">
+        <span class="step__n">選定軸 03</span>
+        <h4>基幹システム</h4>
+        <p>勘定系、資金決済、対外接続。停止・改ざんが事業継続に直結し、長期運用でリスクが蓄積しやすい。優先度は最も高いが、着手は上2つの実績を踏まえた段階が現実的。</p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2.5rem">
+      <h3>進め方の目安</h3>
+      <p>初回は、外部接点を持つシステムをブラックボックス診断で確認するところから始めるのが最も摩擦が少ない。ソースコードの提出を伴わないため法務・リスク管理部門の審査が短く済み、資産台帳の整備状況にも依存しない。ここで検出結果の粒度と修正案の実用性を確認したうえで、ソースコード診断の対象を機密情報系・基幹系へ広げていく。</p>
+      <p>監督官庁への説明を要する立場であれば、この一連の記録そのものが「優先システムを特定し、リスクベースで優先順位を付け、対応した」という事実の裏付けになる。診断レポートは技術文書であると同時に、取締役会と監督官庁に対する説明資料でもある。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第5章 PaaS ============ -->
+<section class="section paas">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">第 5 章 ／ ソリューション</span>
+      <h2>Patching as a Service ── AIで見つけ、AIで直す</h2>
+      <p class="section__sub">SB OAI Japanは、ソフトバンクとOpenAIの合弁会社として、OpenAIの最先端AIモデルとソフトバンクグループでの実践知見を組み合わせ、未知の脆弱性の発見から対策提案・修復までを一気通貫で提供します。</p>
+    </div>
+
+    <div class="flow">
+      <div class="flowcard">
+        <b>CHECK</b>
+        <strong>診断</strong>
+        <p>ソースコード診断とブラックボックス診断。コードから脆弱性候補と影響範囲を整理し、実際に悪用される可能性を確認します。</p>
+      </div>
+      <div class="flowcard">
+        <b>CONSULTING</b>
+        <strong>対策レポート・パッチ修正案</strong>
+        <p>診断結果と対応優先度・推奨対応をレポート化。脆弱性候補に対する修正コード案まで提示します。</p>
+      </div>
+      <div class="flowcard">
+        <b>OPERATION</b>
+        <strong>パッチ適用</strong>
+        <p>検証方針・適用方法を整理し、テストから適用作業までを支援します（オプション／SIer様との協業前提）。</p>
+      </div>
+    </div>
+
+    <div class="strengths">
+      <div class="strength">
+        <b>合弁会社だから実現できる最先端モデルの即時適用</b>
+        <p>OpenAIとの連携により、最新モデルの特性や進化を把握し、診断・分析サービスへ最短で反映します。AI診断エンジンにはGPT 5.5-Cyberを採用しています。</p>
+      </div>
+      <div class="strength">
+        <b>ソフトバンクグループ各社への適用実績</b>
+        <p>10社超のグループ会社を対象に脆弱性修正・再診断を含む検証を実施。1,800システムの診断で得られた実務知見を反映しています。</p>
+      </div>
+      <div class="strength">
+        <b>大規模システムのセキュリティ知見</b>
+        <p>大規模システムのセキュリティ設計・運用経験と、セキュリティベンダーからのAward受賞、MSS売上シェアNo.1などの実績を保有しています。</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--f-display);color:#fff;font-size:1.1rem;margin-top:3rem">ご提供価格</h3>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>項目</th><th>キャンペーン価格（税別）</th><th>通常価格（税別）</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>① ソースコード診断</td><td class="num price">1円 / 行</td><td class="num">1.5円 / 行</td><td>診断対象のソースコード行数に応じた従量課金</td></tr>
+          <tr><td>② ブラックボックス診断</td><td class="num price">100万円 / システム</td><td class="num">150万円 / システム</td><td>対象システムのURL等に対し外部から実施</td></tr>
+          <tr><td>③ 診断レポート提示・パッチ案提供</td><td class="num">①②に含む</td><td class="num">①②に含む</td><td>対応優先度・推奨対応と修正コード案</td></tr>
+          <tr><td>④ パッチ適用（オプション）</td><td class="num">－</td><td class="num">個別見積</td><td>SIer様との協業前提でご提供</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.78rem;color:#8FA8C0;margin-top:.9rem;line-height:1.85">
+      ※ キャンペーン価格は、2026年9月30日までに専用Webサイトよりお申し込みいただき、かつ当社が診断実施に必要と指定するソースコード・その他情報をご提出いただいたお客様に限り適用されます。複雑なプラン選択はなく、診断したい対象コード量に応じて開始できます。
+    </p>
+
+    <h3 style="font-family:var(--f-display);color:#fff;font-size:1.1rem;margin-top:2.5rem">データの取り扱い</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td>受領しないデータ</td><td>個人情報（PII）／ 機微情報 ／ 認証情報・秘密鍵 ／ 本番環境のデータ ／ 決済情報（お客様側で除外またはマスキング）</td></tr>
+          <tr><td>保管環境</td><td>SB OAI Japanが厳格に管理するアカウント・端末・セキュア作業環境に限定</td></tr>
+          <tr><td>削除</td><td>提供情報・成果物および本サービス実施中に作成した作業用データは、契約終了後30日以内に削除／アクセス不能化</td></tr>
+          <tr><td>秘密保持</td><td>利用規約に秘密保持条項を規定。義務は契約終了後も3年間存続</td></tr>
+          <tr><td>最低利用期間</td><td>定めなし（30日前までの通知により解約可能）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta">
+      <div class="cta__copy">
+        <strong>まずは、外部接点を持つ1システムから。</strong>
+        <p>Webの申込サイトから必要事項をご入力いただき、各種規約へのご同意のうえお申し込みください。お申し込み後、専用ポータルをご案内し、必要資料のアップロード、行数のご通知とご承認を経て診断を開始します。</p>
+        <div class="cta__req">
+          <span class="req">対象URL</span>
+          <span class="req">ご担当者1名</span>
+          <span class="req">30分</span>
+        </div>
+      </div>
+      <a class="btn" href="https://business.form-mailer.jp/lp/fbbe3b03358375" target="_blank" rel="noopener noreferrer">
+        PaaSを申し込む <span class="btn__arrow">→</span>
+      </a>
+      <p class="cta__note">
+        診断対象は、事前に合意したソースコードおよびアクセスポイントに限定されます。合意範囲外のシステム、第三者管理システム、独自言語は対象外です。実装・検証・本番適用の最終判断と責任はお客様に帰属します。本サービスは、すべての脆弱性の発見、セキュリティリスクの排除、将来の被害防止、修復完了を保証するものではありません。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 出典 ============ -->
+<section class="section sources">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="section__num">APPENDIX</span>
+      <h2>出典・注記</h2>
+    </div>
+    <ol>
+      <li>内閣官房 国家サイバー統括室「サイバーセキュリティ2026（2025年度年次報告・2026年度年次計画）」2026年7月31日 サイバーセキュリティ戦略本部決定。AIによるサイバー攻撃の自動実行に関する報告、フロンティアAIのサイバーセキュリティ性能向上、Project YATA-Shield、重要インフラのサイバーセキュリティ対策のための統一基準（2026年10月施行予定）、および国内外の被害事例に関する記述。</li>
+      <li>SB OAI Japan「Patching as a Service サービスご説明資料」2026年7月27日版。サービス内容、ご提供価格、データ管理ポリシー、秘密保持条項、免責事項、診断対象システムの選定観点、サービス提供の流れ。</li>
+      <li>SB OAI Japan「PaaSの概要」。フロンティアAIが発見した脆弱性の例（OpenBSD 27年／FFmpeg 16年／FreeBSD 17年）、診断実績（1,000万行あたり平均280件、うち緊急・高リスク約25%）、AI診断エンジンGPT 5.5-Cyber。</li>
+      <li>ソフトバンク自社における攻撃観測および脆弱性検証結果（2025年度）。偵察行為3億件／月、不正侵入試行6万件／月、DDoS攻撃2,800件／月。対象1,800システム、検出脆弱性10,500件、要対応4,000件。</li>
+      <li>各社公表情報および公開報道。国内・電気通信事業者のメールセキュリティサービスへの不正アクセス（2025年4月）、大手通販事業者へのランサムウェア攻撃（2025年10月）、大手出版グループへのランサムウェア攻撃（2024年6月）、全国銀行データ通信システムの障害（2023年10月）、米国医療決済基盤へのランサムウェア攻撃（2024年2月）、暗号資産取引所Bybitからの資産流出（2025年2月）、バングラデシュ中央銀行のSWIFT不正送金（2016年）。</li>
+      <li>本レポートに記載した監督官庁からの要請内容および対応項目は、公表資料および業界公表情報に基づく整理です。個別の要請文書の解釈および自社の適合状況の判断については、貴行のリスク管理部門・法務部門にご確認ください。</li>
+    </ol>
+    <p class="disclaimer">
+      本レポートは、メガバンクにおける情報システムの一般的な構成を前提とした整理であり、特定の金融機関のシステム構成、セキュリティ対策状況、脆弱性の有無について言及するものではありません。記載した被害事例は、各社の公表情報および公開報道に基づく本レポート作成時点での整理です。<br>
+      発行：SB OAI Japan 合同会社　／　2026年8月
+    </p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>SB OAI JAPAN ／ PATCHING AS A SERVICE</span>
+    <span>業界別 AIサイバーセキュリティ・レポート ／ メガバンク編</span>
+  </div>
+</footer>
