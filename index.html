@@ -334,6 +334,33 @@ footer.foot{background:var(--navy);color:#8FAECD;padding-block:2rem;font-family:
 footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---------- threat ranking ---------- */
+.ranks{border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:1.6rem;background:var(--surface)}
+.rank{display:flex;gap:1rem;align-items:flex-start;padding:.95rem 1.15rem;border-bottom:1px solid var(--rule-soft)}
+.rank:last-child{border-bottom:0}
+.rank__n{font-family:var(--f-mono);font-size:1rem;font-weight:600;color:var(--muted);min-width:2.6rem;font-variant-numeric:tabular-nums;padding-top:.1rem}
+.rank__b{display:flex;flex-direction:column;gap:.25rem}
+.rank__t{font-weight:700;font-size:.95rem;color:var(--ink)}
+.rank__m{font-size:.83rem;color:var(--muted);line-height:1.75}
+.rank--hot{background:var(--crimson-wash)}
+.rank--hot .rank__n{color:var(--crimson)}
+.rank--ai{background:var(--blue-wash)}
+.rank--ai .rank__n{color:var(--blue)}
+.rankcap{font-size:.78rem;color:var(--faint);margin-top:.8rem;line-height:1.8;max-width:var(--measure)}
+
+/* ---------- viewpoint group ---------- */
+.vgroup{margin-top:3rem}
+.vgroup:first-of-type{margin-top:0}
+.vgroup__hd{padding-bottom:.75rem;border-bottom:2px solid var(--ink);margin-bottom:1.6rem;display:flex;flex-direction:column;gap:.4rem}
+.vgroup__n{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;font-weight:600;color:var(--blue)}
+.vgroup__t{font-family:var(--f-display);font-size:1.2rem;font-weight:600;color:var(--ink)}
+.vgroup__d{font-size:.88rem;color:var(--muted);max-width:var(--measure);line-height:1.85}
+
+/* ---------- protocol list ---------- */
+.protos{display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:1.4rem}
+.proto{background:var(--surface);padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.3rem}
+.proto b{font-family:var(--f-mono);font-size:.85rem;color:var(--amber);font-weight:600}
+.proto span{font-size:.82rem;color:var(--ink-2);line-height:1.75}
 </style>
 
 <header class="cover">
@@ -344,10 +371,10 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
     </div>
     <h1>メガバンクには、<br>いま、<em>診る理由</em>がある。</h1>
     <p class="cover__lede">
-      フロンティアAIは、27年間だれにも見つけられなかった脆弱性を数分で掘り起こす。
-      その能力を、攻撃側はすでに手にしている。本レポートは、メガバンクの情報システムを5つの層に分解し、
-      フロンティアAI時代に露出するリスクがどこに存在するのかを構成図の上にマッピングしたうえで、
-      「なぜ、いま顕在化したのか」「同業界で実際に何が起きたのか」「何を講じるべきか」を章ごとに示す。
+      いま実際に企業を襲っている脅威は、珍しい手口ではない。ランサム攻撃と、委託先を狙った攻撃。
+      この2つは4年連続で国内脅威の1位・2位であり続けている。そこにフロンティアAIが加わり、
+      攻撃の速度だけが跳ね上がった。本レポートは、侵入口・感染拡大・持ち出し口という3つの観点で、
+      メガバンクのどこにリスクが集まっているのかを整理する。
     </p>
     <div class="cover__meta">
       <span>2026年8月 発行</span>
@@ -357,392 +384,435 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
   </div>
 </header>
 
-<!-- ============ サマリー ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section__head">
       <span class="section__num">SUMMARY</span>
       <h2>本レポートの結論</h2>
-      <p class="section__sub">メガバンクが直面している変化は「攻撃が増えた」ことではない。攻撃と防御のあいだにあった時間差が、片側だけ消えたことにある。</p>
+      <p class="section__sub">起きているのは新種の攻撃ではない。定番の攻撃が、AIによって桁違いの速度で回るようになった。</p>
     </div>
 
     <div class="sumgrid">
       <div class="sumcard">
         <span class="sumcard__k">結論 01</span>
-        <h3>攻撃側は、すでにフロンティアAIを実装している</h3>
-        <p>海外のAI開発事業者からは、AIの悪用によりサイバー攻撃の80〜90%を自動的に実行できるとの報告がなされている。政府の年次報告も、フロンティアAIによるサイバーセキュリティ性能の急速な向上に「危機感を持って迅速に取り組むことが必要不可欠」と明記した。攻撃の高度化は予測ではなく、観測されている事実である。</p>
+        <h3>脅威は特殊ではない。定番の上位3つが同時に来る</h3>
+        <p>IPA「情報セキュリティ10大脅威 2026」で、組織向けの1位はランサム攻撃、2位はサプライチェーンや委託先を狙った攻撃。この2つは2023年以来4年連続で同じ順位にある。そして今回、AIの利用をめぐるサイバーリスクが初めて3位に入った。守るべき対象は、目新しい攻撃ではなくこの3つが重なる場所にある。</p>
       </div>
       <div class="sumcard">
         <span class="sumcard__k">結論 02</span>
-        <h3>リスクは勘定系そのものより、層と層の結節点に集中する</h3>
-        <p>メガバンクの弱点は、最も守られている勘定系の中心ではない。チャネルと業務系をつなぐFEP・MQ・API GW・ESB、全銀・日銀ネット・SWIFTへの対外接続口、そしてグループ会社・委託先との連携口──いずれも最も古く、最も触りにくいコードが残る場所である。</p>
+        <h3>見るべきは3点。侵入口・感染拡大・持ち出し口</h3>
+        <p>侵入口は、委託先／従業員端末／外部に公開したサーバーの3系統に集約される。入られた後は特権ID（Tier 0）を奪って横に広がり、重要資産（クラウンジュエル）へ到達する。最後に、外へ持ち出す通信プロトコルが出口になる。この3工程のどこかが空いていれば、他をいくら固めても届かない。</p>
       </div>
       <div class="sumcard">
         <span class="sumcard__k">結論 03</span>
-        <h3>必要なのは「見つける」の高速化ではなく「直す」の自動化</h3>
-        <p>AI診断はソースコード1,000万行あたり平均約280件の脆弱性を返し、うち約25%が早期対策を要する高リスクと判定される。検出量が人手のトリアージ能力を超えた時点で、ボトルネックは発見側から修復側へ移る。</p>
+        <h3>AIが変えたのは工程ではなく、速度</h3>
+        <p>フロンティアAIは、偵察から攻撃コード生成までを数分で回す。一方で防御側は、検出したあとの修正に人手を要する。診断はソースコード1,000万行あたり平均約280件の脆弱性を返し、うち約25%が高リスクと判定される。ボトルネックは、発見側ではなく修復側にある。</p>
       </div>
     </div>
 
     <div class="stats">
-      <div class="stat"><span class="stat__v">280<span style="font-size:.5em;font-weight:500">件</span></span><span class="stat__l">ソースコード1,000万行あたりに検出される脆弱性の平均件数</span></div>
-      <div class="stat"><span class="stat__v">25<span style="font-size:.5em;font-weight:500">%</span></span><span class="stat__l">うち「早期対策が必要な可能性のある高リスク」と判定された割合</span></div>
-      <div class="stat"><span class="stat__v">27<span style="font-size:.5em;font-weight:500">年</span></span><span class="stat__l">フロンティアAIが発見した、サーバーOSに潜伏していた脆弱性の未発見期間</span></div>
-      <div class="stat"><span class="stat__v is-calm">3<span style="font-size:.5em;font-weight:500">億件/月</span></span><span class="stat__l">ソフトバンクが自社で観測しているシステムへの偵察行為</span></div>
+      <div class="stat"><span class="stat__v">1<span style="font-size:.5em;font-weight:500">位</span></span><span class="stat__l">ランサム攻撃による被害（IPA 10大脅威 2026・組織／4年連続）</span></div>
+      <div class="stat"><span class="stat__v">2<span style="font-size:.5em;font-weight:500">位</span></span><span class="stat__l">サプライチェーンや委託先を狙った攻撃（同・4年連続）</span></div>
+      <div class="stat"><span class="stat__v is-calm">280<span style="font-size:.5em;font-weight:500">件</span></span><span class="stat__l">ソースコード1,000万行あたりに検出される脆弱性の平均</span></div>
+      <div class="stat"><span class="stat__v is-calm">3<span style="font-size:.5em;font-weight:500">億件/月</span></span><span class="stat__l">ソフトバンクが自社で観測している偵察行為</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 第1章 ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section__head">
       <span class="section__num">第 1 章 ／ 共通</span>
-      <h2>フロンティアAIは、サイバーセキュリティの前提を書き換えた</h2>
-      <p class="section__sub">この章は全業界に共通する。第2章以降で扱うメガバンク固有のリスクは、すべてここで説明する構造変化の帰結として現れる。</p>
+      <h2>いま何が起きていて、AIは何を変えたのか</h2>
+      <p class="section__sub">まず、実際に発生している脅威の順位を確認する。そのうえで、フロンティアAIがこの構図に何を持ち込んだのかを見る。</p>
     </div>
 
     <div class="prose">
-      <h3>1-1　攻撃の準備工程が、人間の手から離れた</h3>
-      <p>これまでサイバー攻撃には、標的の調査、侵入経路の設計、攻撃コードの作成という、いずれも専門知識と時間を要する工程が必要だった。この工程こそが、防御側に与えられていた猶予である。フロンティアAIはその猶予を消し去った。標的組織に対する情報収集、標的を信頼させるためのおとりの作成、マルウェア開発に至るまで、攻撃のあらゆる過程でAIが悪用されていることが確認されている。</p>
-      <p>結果として起きているのは、攻撃の高度化だけではない。<strong>効率化と量産化</strong>である。かつて国家背景の攻撃グループしか実行できなかった水準の攻撃が、経験やリソースの少ない攻撃者にも開かれた。攻撃者の数と、一人あたりが同時に狙える標的数が、同時に増えている。</p>
+      <h3>1-1　脅威の中身は、4年間ほとんど変わっていない</h3>
+      <p>IPAが毎年公表する「情報セキュリティ10大脅威」の2026年版で、組織向けの上位は次のとおりである。</p>
+    </div>
 
-      <h3>1-2　20年以上だれも見つけられなかった脆弱性が、次々と掘り起こされている</h3>
+    <div class="ranks">
+      <div class="rank rank--hot">
+        <span class="rank__n">1位</span>
+        <span class="rank__b">
+          <span class="rank__t">ランサム攻撃による被害</span>
+          <span class="rank__m">2023年から4年連続で1位。業務停止と情報流出が同時に発生し、復旧に数ヶ月を要する。</span>
+        </span>
+      </div>
+      <div class="rank rank--hot">
+        <span class="rank__n">2位</span>
+        <span class="rank__b">
+          <span class="rank__t">サプライチェーンや委託先を狙った攻撃</span>
+          <span class="rank__m">2023年から4年連続で2位。自社ではなく、接続している相手側が突破口になる。</span>
+        </span>
+      </div>
+      <div class="rank rank--ai">
+        <span class="rank__n">3位</span>
+        <span class="rank__b">
+          <span class="rank__t">AIの利用をめぐるサイバーリスク</span>
+          <span class="rank__m">2026年版で初めて3位に入った。AIの理解不足による情報漏えい、生成結果を検証せず受け入れることによる問題、そしてAI悪用によるサイバー攻撃の容易化・高度化を含む。</span>
+        </span>
+      </div>
+    </div>
+    <p class="rankcap">出典：IPA「情報セキュリティ10大脅威 2026」（2026年1月29日公表、組織編）</p>
+
+    <div class="prose" style="margin-top:2.2rem">
+      <p>読み取るべきは、1位と2位が4年間動いていないという事実である。攻撃者は新しい手口を探しているのではなく、<strong>成功率の高い同じ手口を、より多くの標的に対して回している</strong>。そこに3位のAIが加わったことで、回す速度と対象数が変わった。</p>
+
+      <h3>1-2　攻撃の準備工程が、人間の手から離れた</h3>
+      <p>これまでサイバー攻撃には、標的の調査、侵入経路の設計、攻撃コードの作成という、いずれも専門知識と時間を要する工程が必要だった。この工程こそが、防御側に与えられていた猶予である。標的組織への情報収集、標的を信頼させるためのおとりの作成、マルウェア開発に至るまで、攻撃のあらゆる過程でAIが悪用されていることが確認されている。海外のAI開発事業者からは、AIの悪用によりサイバー攻撃の80〜90%を自動的に実行できるとの報告もなされている。</p>
+      <p>結果として起きているのは、攻撃の高度化だけではない。<strong>効率化と量産化</strong>である。かつて国家背景の攻撃グループしか実行できなかった水準の攻撃が、経験やリソースの少ない攻撃者にも開かれた。</p>
+
+      <h3>1-3　20年以上だれも見つけられなかった脆弱性が、掘り起こされている</h3>
       <p>フロンティアAIの能力を最も端的に示すのは、既知の脆弱性を速く見つけることではなく、<strong>未知の脆弱性を能動的に探索できる</strong>ことである。実際に、サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間にわたり発見されずにいた脆弱性が、フロンティアAIによって検出されている。</p>
-      <p>この事実がメガバンクにとって持つ意味は明確である。長年にわたり安定稼働してきたこと、大きな事故を起こしていないことは、もはや安全性の証明にならない。むしろ稼働年数が長いシステムほど、掘り起こされる余地を多く抱えている。</p>
+      <p>長年にわたり安定稼働してきたこと、大きな事故を起こしていないことは、もはや安全性の証明にならない。むしろ稼働年数が長いコードほど、掘り起こされる余地を多く抱えている。</p>
 
-      <h3>1-3　「見つける」と「直す」のあいだに、致命的な時間差が開いた</h3>
-      <p>攻撃側は脆弱性の探索から攻撃コードの生成までを数分から数秒で行う。一方で防御側の実務は、シグネチャの定義更新を待ち、月次のパッチ適用サイクルを回し、ログを目視で確認する。この非対称は、担当者の努力や人員の増強で埋まる性質のものではない。防御の速度が構造的にヒューマンスピードに固定されているからである。</p>
-      <p>近年はセキュリティ製品にもAIが搭載され、脆弱性の検知や修正案の提示は自動化されつつある。しかしそこで自動化されたのは「見つける」までであり、<strong>修正コードの適用という最も時間を要する工程は依然として人間側に残されている</strong>。攻撃側と同じ世代のAIを、修復の実行まで通して使えるかどうかが分岐点になる。</p>
+      <h3>1-4　「見つける」と「直す」のあいだに、致命的な時間差が開いた</h3>
+      <p>攻撃側は脆弱性の探索から攻撃コードの生成までを数分から数秒で行う。一方で防御側の実務は、検出結果のトリアージ、影響調査、修正、テスト、適用という工程を人手で回す。この非対称は、担当者の努力や人員の増強で埋まる性質のものではない。</p>
+      <p>近年はセキュリティ製品にもAIが搭載され、脆弱性の検知や修正案の提示は自動化されつつある。しかしそこで自動化されたのは「見つける」までであり、<strong>修正コードの適用という最も時間を要する工程は依然として人間側に残されている</strong>。</p>
 
-      <h3>1-4　規制はすでに動き出している</h3>
+      <h3>1-5　規制はすでに動き出している</h3>
       <p>政府は、フロンティアAIモデルによるサイバーセキュリティ性能が向上するなかでも我が国のサイバーセキュリティが確保されるよう、AI性能の高度化を踏まえた政府全体としての対策パッケージ「Project YATA-Shield」に基づく取組を進めている。重要インフラ分野については、事業者が分野・事業者横断的に講ずべき対策の基準として「重要インフラのサイバーセキュリティ対策のための統一基準」の施行が2026年10月に予定されている。</p>
-      <p>金融分野はそのなかでも先行している。監督官庁からの要請は、経営陣の直接関与のもとで、優先システムの特定、リスクベースでの脆弱性の優先順位付け、仮想パッチを含む多層防御、共同運営システムの責任分担の明確化、ベンダー側リソース確保の確認といった具体項目に及ぶ。<strong>「要請が来てから動く」という姿勢そのものが、ガバナンス上の説明責任を問われる局面に入っている。</strong></p>
+      <p>ソフトウェア構成の透明化も進んでいる。経済産業省は「ソフトウェア管理に向けたSBOM（ソフトウェア部品表）の導入に関する手引」を公表し、2026年7月には国家サイバー統括室とともに、SBOMの最小要素に関する国際ガイダンスへ共同署名した。<strong>現時点で国内に法的な作成義務はない</strong>が、取引先からの要求事項として広がりつつあり、EUのサイバーレジリエンス法（CRA）では2027年から段階的に義務が適用される。</p>
     </div>
   </div>
 </section>
 
-<!-- ============ 第2章 ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section__head">
       <span class="section__num">第 2 章 ／ メガバンク</span>
-      <h2>リスクはどこにあるか──5層構成でのマッピング</h2>
-      <p class="section__sub">メガバンクの情報システムを5層に分解し、第3章で扱う5つのリスクがどの層に位置するかを示す。あわせて、他業態と条件が異なる「入口・本体・出口」の3点を図で整理する。</p>
+      <h2>リスクはどこにあるか──侵入口・感染拡大・持ち出し口</h2>
+      <p class="section__sub">セキュリティは、アクセス経路（どこから入られるか）、感染拡大と重要資産（入られた後にどこへ向かうか）、イグレス（何を通じて外へ出るか）の3観点で見る。メガバンクの条件をこの3観点に当てはめる。</p>
     </div>
-
-    <div class="arch">
-      <div class="layer">
-        <div class="layer__id"><b>① チャネル層</b><span>FRONT</span></div>
-        <div class="layer__body">
-          営業店端末 ／ ATM・CD ／ コンタクトセンター ／ Web・アプリ ／ オープンAPI・BaaS ／ 法人向けEB・CMS ／ 代理店端末 ／ 外部プラットフォーム連携
-          <div class="layer__chips"><span class="chip"><a href="#risk-1">リスク 01</a></span></div>
-        </div>
-      </div>
-
-      <div class="gap">
-        <b>↓ 最大の隙間</b>
-        <span>FEP・MQ・API GW・ESB（最大のレガシー債務）／ テレワーク用VPN・リモート接続基盤 ／ グループ会社・委託先との連携口</span>
-      </div>
-
-      <div class="layer">
-        <div class="layer__id"><b>② 業務系（周辺系）</b><span>BUSINESS</span></div>
-        <div class="layer__body">融資・審査 ／ 外為 ／ 投信・窓販 ／ 法人業務 ／ CRM ／ ワークフロー・稟議 ／ グループ横断の顧客情報連携</div>
-      </div>
-
-      <div class="layer layer--core">
-        <div class="layer__id"><b>③ コア系（勘定系）</b><span>MISSION CRITICAL</span></div>
-        <div class="layer__body">
-          元帳（口座・契約）／ リアルタイム取引（OLTP）／ 日次・月次バッチ ／ 資金決済・付替 ／ 手数料・利息計算
-          <div class="layer__chips"><span class="chip"><a href="#risk-2">リスク 02</a></span></div>
-        </div>
-      </div>
-
-      <div class="layer layer--ext">
-        <div class="layer__id"><b>④ 対外接続系</b><span>EXTERNAL LINKS</span></div>
-        <div class="layer__body">
-          全銀システム ／ 日銀ネット ／ CAFIS ／ ANSER ／ SWIFT ／ 取引所 ／ JASDEC・JSCC ／ 国際ブランドNW ／ 海外拠点・現地決済網
-          <div class="layer__chips"><span class="chip"><a href="#risk-3">リスク 03</a></span></div>
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="layer__id"><b>⑤ 情報系</b><span>DATA</span></div>
-        <div class="layer__body">DWH・データレイク・MDM ／ リスク・ALM ／ 規制報告 ／ AML・不正検知 ／ BI ／ 生成AI基盤</div>
-      </div>
-
-      <div class="spans">
-        <div class="span"><b>縦断A：共通基盤</b>ID・統合認証 ／ 統合監視・ジョブ ／ 帳票 ／ セキュリティ ／ BCP・DR</div>
-        <div class="span"><b>縦断B：リスク＆コンプライアンス</b>FISC安全対策基準 ／ 金融分野サイバーセキュリティGL ／ 監督指針・内部統制</div>
-      </div>
-    </div>
-
-    <p class="archnote">※ リスク04（グループ会社・委託先経由の侵入）とリスク05（修復のボトルネック）は特定の層に閉じず、図全体を横断して発生する。</p>
 
     <figure class="flowfig">
-      <p class="flowfig__cap">メガバンク固有の3条件 ── 入口・本体・出口</p>
+      <p class="flowfig__cap">侵入口 → 感染拡大 → 持ち出し口</p>
       <div class="flowfig__scroll">
-<svg viewBox="0 0 1000 420" role="img" aria-labelledby="flowTitle flowDesc">
-<title id="flowTitle">メガバンク固有の3条件</title>
-<desc id="flowDesc">グループ会社と委託先という広い入口から、自前で保有する巨大な勘定系へ侵入経路がつながり、対外接続系を通じて取引先金融機関・決済・清算インフラ・社会機能へ被害が波及する構造を示した図。</desc>
+<svg viewBox="0 0 1000 440" role="img" aria-labelledby="flowTitle flowDesc">
+<title id="flowTitle">侵入口・感染拡大・持ち出し口の構造</title>
+<desc id="flowDesc">委託先・従業員端末・外部公開サーバーの3つの侵入口から侵入され、特権IDを奪われて重要資産へ感染が拡大し、通信プロトコルを通じて外部へデータが持ち出され、取引先金融機関や決済・清算インフラ、社会機能へ波及する構造を示した図。</desc>
 
 <rect class="dg-mark-in" x="30" y="19" width="9" height="9"/>
-<text class="dg-label" x="45" y="28">① 入口：グループ・委託先</text>
-<rect class="dg-mark-core" x="398" y="19" width="9" height="9"/>
-<text class="dg-label" x="413" y="28">② 本体：止められない</text>
-<rect class="dg-mark-out" x="780" y="19" width="9" height="9"/>
-<text class="dg-label" x="795" y="28">③ 出口：自社の外へ</text>
+<text class="dg-label" x="45" y="28">① アクセス経路（侵入口）</text>
+<rect class="dg-mark-core" x="380" y="19" width="9" height="9"/>
+<text class="dg-label" x="395" y="28">② 感染拡大と重要資産</text>
+<rect class="dg-mark-out" x="625" y="19" width="9" height="9"/>
+<text class="dg-label" x="640" y="28">③ イグレスと波及先</text>
 
-<rect class="dg-tag" x="30" y="54" width="126" height="25" rx="2"/>
-<text class="dg-tagtxt" x="93" y="71" text-anchor="middle">グループ会社</text>
-<rect class="dg-box" x="30" y="79" width="262" height="112" rx="2"/>
-<text class="dg-t" x="48" y="112">信託・証券・カード・リース</text>
-<text class="dg-t" x="48" y="138">海外拠点・現地法人</text>
-<text class="dg-m" x="48" y="166">業務システムで本体と連結</text>
+<rect class="dg-box" x="30" y="62" width="250" height="100" rx="2"/>
+<text class="dg-tagtxt" x="46" y="88">委託先・取引先</text>
+<text class="dg-t" x="46" y="112">保守・運用の外部アカウント</text>
+<text class="dg-m" x="46" y="138">IPA 10大脅威 2026 ／ 2位</text>
 
-<rect class="dg-tag" x="30" y="246" width="168" height="25" rx="2"/>
-<text class="dg-tagtxt" x="114" y="263" text-anchor="middle">委託先・外部ベンダー</text>
-<rect class="dg-box" x="30" y="271" width="262" height="112" rx="2"/>
-<text class="dg-t" x="48" y="304">開発・運用の委託先</text>
-<text class="dg-t" x="48" y="330">保守・データセンター事業者</text>
-<text class="dg-m" x="48" y="358">1,800システム中1,100が外部管理</text>
+<rect class="dg-box" x="30" y="184" width="250" height="100" rx="2"/>
+<text class="dg-tagtxt" x="46" y="210">従業員の端末</text>
+<text class="dg-t" x="46" y="234">なりすまし・URLクリック</text>
+<text class="dg-m" x="46" y="260">Web会議・ファイル実行</text>
 
-<polygon class="dg-arrow-in" points="296,124 370,124 370,113 398,135 370,157 370,146 296,146"/>
-<text class="dg-atxt-in" x="333" y="108" text-anchor="middle">侵入</text>
-<polygon class="dg-arrow-in" points="296,316 370,316 370,305 398,327 370,349 370,338 296,338"/>
-<text class="dg-atxt-in" x="333" y="300" text-anchor="middle">侵入</text>
+<rect class="dg-box" x="30" y="306" width="250" height="100" rx="2"/>
+<text class="dg-tagtxt" x="46" y="332">外部公開サーバー</text>
+<text class="dg-t" x="46" y="356">Web・API・公開系</text>
+<text class="dg-m" x="46" y="382">内部のライブラリを含む</text>
 
-<ellipse class="dg-core" cx="485" cy="350" rx="87" ry="24"/>
-<rect class="dg-corebody" x="398" y="100" width="174" height="250"/>
-<line class="dg-coreline" x1="398" y1="100" x2="398" y2="350"/>
-<line class="dg-coreline" x1="572" y1="100" x2="572" y2="350"/>
-<ellipse class="dg-core" cx="485" cy="100" rx="87" ry="24"/>
-<ellipse class="dg-corelit" cx="485" cy="100" rx="87" ry="24"/>
-<text class="dg-coretxt-lg" x="485" y="156" text-anchor="middle">勘定系</text>
-<text class="dg-coretxt" x="485" y="186" text-anchor="middle">自前保有・数千万行規模</text>
-<text class="dg-coretxt" x="485" y="210" text-anchor="middle">COBOL中心</text>
-<text class="dg-coretxt" x="485" y="234" text-anchor="middle">「触るのが怖い」コード</text>
-<line class="dg-coredv" x1="420" y1="258" x2="550" y2="258"/>
-<text class="dg-coremute" x="485" y="286" text-anchor="middle">24時間365日</text>
-<text class="dg-corewarn" x="485" y="310" text-anchor="middle">停止できない</text>
+<polygon class="dg-arrow-in" points="284,101 352,101 352,90 380,112 352,134 352,123 284,123"/>
+<polygon class="dg-arrow-in" points="284,223 352,223 352,212 380,234 352,256 352,245 284,245"/>
+<polygon class="dg-arrow-in" points="284,345 352,345 352,334 380,356 352,378 352,367 284,367"/>
+<text class="dg-atxt-in" x="332" y="86" text-anchor="middle">侵入</text>
 
-<polygon class="dg-arrow-out" points="576,214 592,214 592,205 606,222 592,239 592,230 576,230"/>
-<text class="dg-atxt-out" x="591" y="196" text-anchor="middle">波及</text>
+<ellipse class="dg-core" cx="475" cy="390" rx="95" ry="24"/>
+<rect class="dg-corebody" x="380" y="90" width="190" height="300"/>
+<line class="dg-coreline" x1="380" y1="90" x2="380" y2="390"/>
+<line class="dg-coreline" x1="570" y1="90" x2="570" y2="390"/>
+<ellipse class="dg-core" cx="475" cy="90" rx="95" ry="24"/>
+<ellipse class="dg-corelit" cx="475" cy="90" rx="95" ry="24"/>
+<text class="dg-coretxt-lg" x="475" y="140" text-anchor="middle">クラウンジュエル</text>
+<text class="dg-coretxt" x="475" y="168" text-anchor="middle">顧客情報（CRM）</text>
+<text class="dg-coretxt" x="475" y="190" text-anchor="middle">取引・決済データ</text>
+<line class="dg-coredv" x1="405" y1="210" x2="545" y2="210"/>
+<text class="dg-corewarn" x="475" y="238" text-anchor="middle">Tier 0 ／ 特権ID</text>
+<text class="dg-coretxt" x="475" y="260" text-anchor="middle">AD・Entra ID</text>
+<text class="dg-coretxt" x="475" y="282" text-anchor="middle">PIM・PAM</text>
+<line class="dg-coredv" x1="405" y1="302" x2="545" y2="302"/>
+<text class="dg-coretxt" x="475" y="330" text-anchor="middle">仮想化・バックアップ基盤</text>
+<text class="dg-coremute" x="475" y="354" text-anchor="middle">奪われた時点で全てが開く</text>
 
-<ellipse class="dg-pillar" cx="680" cy="222" rx="70" ry="168"/>
-<text class="dg-pillarhd" x="680" y="188" text-anchor="middle">対外接続系</text>
-<text class="dg-pillartxt" x="680" y="214" text-anchor="middle">全銀システム</text>
-<text class="dg-pillartxt" x="680" y="236" text-anchor="middle">日銀ネット</text>
-<text class="dg-pillartxt" x="680" y="258" text-anchor="middle">SWIFT・CAFIS</text>
+<polygon class="dg-arrow-out" points="574,217 590,217 590,208 604,225 590,242 590,233 574,233"/>
+<text class="dg-atxt-out" x="589" y="199" text-anchor="middle">流出</text>
 
-<polygon class="dg-arrow-out" points="719,76 764,76 764,70 778,80 764,90 764,84 719,84"/>
-<polygon class="dg-arrow-out" points="749,171 764,171 764,165 778,175 764,185 764,179 749,179"/>
-<polygon class="dg-arrow-out" points="749,266 764,266 764,260 778,270 764,280 764,274 749,274"/>
-<polygon class="dg-arrow-out" points="719,361 764,361 764,355 778,365 764,375 764,369 719,369"/>
+<ellipse class="dg-pillar" cx="680" cy="225" rx="68" ry="175"/>
+<text class="dg-pillarhd" x="680" y="182" text-anchor="middle">イグレス（出口）</text>
+<text class="dg-pillartxt" x="680" y="210" text-anchor="middle">HTTPS</text>
+<text class="dg-pillartxt" x="680" y="232" text-anchor="middle">SMTP・IMAP</text>
+<text class="dg-pillartxt" x="680" y="254" text-anchor="middle">FTP・SFTP</text>
+<text class="dg-pillartxt" x="680" y="276" text-anchor="middle">DNS</text>
 
-<ellipse class="dg-node" cx="880" cy="80" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="85" text-anchor="middle">取引先金融機関</text>
-<ellipse class="dg-node" cx="880" cy="175" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="180" text-anchor="middle">企業・個人の決済</text>
-<ellipse class="dg-node" cx="880" cy="270" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="275" text-anchor="middle">証券・清算インフラ</text>
-<ellipse class="dg-node" cx="880" cy="365" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="370" text-anchor="middle">社会機能・生活基盤</text>
+<polygon class="dg-arrow-out" points="721,81 764,81 764,75 778,85 764,95 764,89 721,89"/>
+<polygon class="dg-arrow-out" points="746,176 764,176 764,170 778,180 764,190 764,184 746,184"/>
+<polygon class="dg-arrow-out" points="745,271 764,271 764,265 778,275 764,285 764,279 745,279"/>
+<polygon class="dg-arrow-out" points="718,366 764,366 764,360 778,370 764,380 764,374 718,374"/>
+
+<ellipse class="dg-node" cx="880" cy="85" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="90" text-anchor="middle">取引先金融機関</text>
+<ellipse class="dg-node" cx="880" cy="180" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="185" text-anchor="middle">企業・個人の決済</text>
+<ellipse class="dg-node" cx="880" cy="275" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="280" text-anchor="middle">証券・清算インフラ</text>
+<ellipse class="dg-node" cx="880" cy="370" rx="100" ry="34"/>
+<text class="dg-nodetxt" x="880" y="375" text-anchor="middle">社会機能・生活基盤</text>
 </svg>
       </div>
     </figure>
 
     <div class="premise">
       <div class="p-in">
-        <span class="zone">① 入口</span>
+        <span class="zone">① アクセス経路</span>
         <h4>入口は、本体の外側に広がっている</h4>
         <p>グループ会社と委託先を含めれば接続点は数百から数千に及ぶ。攻撃者は本体を正面から狙う必要がない。ソフトバンクが自社を診断した際、対象1,800システムのうち1,100システムが外部ベンダー管理下にあった。</p>
       </div>
       <div class="p-core">
-        <span class="zone">② 本体</span>
-        <h4>本体は大きく、止められない</h4>
-        <p>共同センターを利用する地域金融機関と異なり、メガバンクは勘定系を自社で保有・改修してきた。コード資産は数千万行規模に達し、その多くがCOBOLで書かれている。稼働実績を根拠に「触らない」運用で守られてきた領域である。</p>
+        <span class="zone">② 感染拡大と重要資産</span>
+        <h4>守るべきは勘定系だけではない</h4>
+        <p>金融機関で最も狙われるのは顧客情報である。攻撃者は端末を起点に特権ID（Tier 0）を奪い、重要資産（クラウンジュエル）へ横に広がる。近年は仮想化基盤とバックアップ基盤そのものが標的になっている。</p>
       </div>
       <div class="p-out">
-        <span class="zone">③ 出口</span>
-        <h4>出口は、社会につながっている</h4>
-        <p>対外接続系は業界インフラへの参加口であると同時に、被害が外部へ波及する経路でもある。決済ネットワークの結節点が停止すれば、影響は取引先金融機関と最終顧客に連鎖する。メガバンクの障害は、定義上つねに社会的影響を伴う。</p>
+        <span class="zone">③ イグレスと波及</span>
+        <h4>出口は、通信プロトコルの数だけある</h4>
+        <p>持ち出しはネットワークの種別ではなく、通信プロトコル単位で起きる。加えて対外接続系は、被害が外部へ波及する経路でもある。メガバンクの障害は、定義上つねに社会的影響を伴う。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 第3章 ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section__head">
       <span class="section__num">第 3 章 ／ リスク詳細</span>
-      <h2>5つのリスクと、いま講じるべき対策</h2>
-      <p class="section__sub">各リスクについて、「なぜフロンティアAIによって顕在化したのか」「同業界で実際に何が起きたのか」「何を講じるべきか」の3点で整理する。</p>
+      <h2>6つのリスクと、いま講じるべき対策</h2>
+      <p class="section__sub">3つの観点それぞれについて、「なぜフロンティアAIによって顕在化したのか」「実際に何が起きたのか」「何を講じるべきか」で整理する。事例は原則として直近1年以内、長くとも3年以内のものに限定した。</p>
     </div>
 
-    <div class="risks">
+    <div class="vgroup">
+      <div class="vgroup__hd">
+        <span class="vgroup__n">観点 ① ／ ACCESS</span>
+        <span class="vgroup__t">アクセス経路 ── どこから入られるか</span>
+        <span class="vgroup__d">侵入口は3系統に集約される。自社の端末とサーバーだけを固めても、接続している相手側が空いていれば意味をなさない。</span>
+      </div>
 
-      <!-- リスク1 -->
-      <article class="risk" id="risk-1">
-        <div class="risk__head">
-          <span class="risk__num">リスク 01</span>
-          <h3>外部接点とFEP・API GW──「最大の隙間」が最初に破られる</h3>
-          <p class="risk__where">構成図上の位置：① チャネル層 ／ 最大の隙間（FEP・MQ・API GW・ESB・VPN）</p>
-        </div>
-        <div class="risk__grid">
-          <div class="rblock rblock--why">
-            <h4>なぜ、いま顕在化したのか</h4>
-            <p>チャネル層と内部システムをつなぐ結節点は、外部から到達可能でありながら、最も古いコードが残る場所である。オープンAPIやBaaSの拡大で外部接点は増え続けたが、その足元のFEPやESBは更改されないまま使われ続けてきた。</p>
-            <p>フロンティアAIは、この「外から見える面」を継続的かつ網羅的に走査し、これまで人手の診断では到達しなかった深さの設定不備や実装の欠陥を能動的に探し出す。年に一度の脆弱性診断で確認していた範囲は、攻撃側にとって常時観測の対象に変わった。</p>
+      <div class="risks">
+        <article class="risk" id="risk-1">
+          <div class="risk__head">
+            <span class="risk__num">リスク 01 ／ 侵入口</span>
+            <h3>委託先・取引先のアカウント──4年連続で国内2位の脅威</h3>
+            <p class="risk__where">IPA 10大脅威 2026・組織 2位「サプライチェーンや委託先を狙った攻撃」</p>
           </div>
-          <div class="rblock rblock--case">
-            <h4>実際に起きたこと</h4>
-            <ul>
-              <li><span class="casetag">2025年4月／国内・電気通信事業者</span>法人向けメールセキュリティサービスがゼロデイ脆弱性を突かれ、メールアカウント・パスワード・メール本文が流出。共通基盤が破られたため、被害は利用企業側へ一斉に及んだ。</li>
-              <li><span class="casetag">2024年2月／米国・医療決済基盤</span>多要素認証が有効化されていないリモート接続ポータルに、窃取済みの認証情報でログインされ侵入。9日間の潜伏を経てランサムウェアが展開され、決済・請求処理が全面停止した。</li>
-            </ul>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>グループ会社と委託先を含めれば、接続点は数百から数千に及ぶ。従来、そのすべてを継続的に調べ上げることは攻撃者にとってもコストが高く、実質的な防壁として機能していた。</p>
+              <p>AIによる偵察の自動化が、この防壁を無効化した。<strong>攻撃者は連結する全社を並列に走査し、最も守りの薄い一社を選び出せる。</strong>本体のセキュリティ投資額は、この経路に対しては意味を持たない。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2025年10月／国内・大手通販事業者</span>業務委託先のリモート接続用アカウント（多要素認証が有効化されていなかった）が悪用されて侵入され、ランサムウェアにより受注・出荷が停止。配送を委託していた複数の小売企業の通販事業も連鎖的に停止した。</li>
+                <li><span class="casetag">2024年2月／米国・医療決済基盤</span>多要素認証が有効化されていないリモート接続ポータルに、窃取済みの認証情報でログインされ侵入。9日間の潜伏を経てランサムウェアが展開され、決済・請求処理が全面停止した。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>診断の範囲を、本体ではなく連結の単位で定義する。</strong>本体だけを診断しても、実際の侵入口は対象外に残る。</li>
+                <li><strong>委託先の接続アカウントについて、多要素認証と権限の棚卸しを取引条件として要求する。</strong>直近の重大事案は、いずれもこの一点を起点としている。</li>
+                <li><strong>例外まで含めて確認する。</strong>方針として全社に適用していても、運用の過程で無効化された1つが侵入口になる。</li>
+              </ul>
+            </div>
           </div>
-          <div class="rblock rblock--fix">
-            <h4>講じるべき対策</h4>
-            <ul>
-              <li><strong>外部接点のブラックボックス診断を先行実施する。</strong>対象URL・FQDN等のアクセス情報のみで外部から診断できるため、資産台帳の整備完了を待たずに着手できる。</li>
-              <li><strong>多要素認証の網羅状況を、例外まで含めて棚卸しする。</strong>方針として全外部公開システムに適用していても、運用の過程で無効化された1台が侵入口になる。</li>
-              <li><strong>WAF等による仮想パッチで、コード改修までの露出時間を埋める。</strong>監督官庁の要請項目にも多層防御として明記されている。</li>
-            </ul>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- リスク2 -->
-      <article class="risk" id="risk-2">
-        <div class="risk__head">
-          <span class="risk__num">リスク 02</span>
-          <h3>勘定系の巨大レガシーコード──「触るのが怖い」まま放置された資産</h3>
-          <p class="risk__where">構成図上の位置：③ コア系（勘定系）</p>
-        </div>
-        <div class="risk__grid">
-          <div class="rblock rblock--why">
-            <h4>なぜ、いま顕在化したのか</h4>
-            <p>数千万行規模のコードを人間が読み切ることは現実的でない。だからこそ勘定系は、稼働実績を根拠に「動いているものには触らない」という運用で守られてきた。この前提が崩れた。</p>
-            <p>フロンティアAIは大量のコードを短時間で解析し、設計者すら認識していなかった欠陥を掘り起こす。これは防御側だけの能力ではない。<strong>行数の多さは、もはや攻撃者にとっての障壁ではなくなった。</strong>むしろ長期間だれの目にも触れていない領域ほど、未知の脆弱性が残存している可能性が高い。</p>
+        <article class="risk" id="risk-2">
+          <div class="risk__head">
+            <span class="risk__num">リスク 02 ／ 侵入口</span>
+            <h3>従業員の端末──URLをクリックさせる攻撃が主流になった</h3>
+            <p class="risk__where">なりすましメール／偽サイト／Web会議／受領ファイルの実行</p>
           </div>
-          <div class="rblock rblock--case">
-            <h4>実際に起きたこと</h4>
-            <ul>
-              <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOS（OpenBSD）で27年間、ファイル共有機能（FreeBSD）で17年間、動画・音声処理ソフト（FFmpeg）で16年間、いずれも未発見だった脆弱性がAIにより検出された。長期の安定稼働は安全性を意味しない。</li>
-              <li><span class="casetag">2023年10月／国内・銀行間決済インフラ</span>全国銀行データ通信システムで大規模な障害が発生し、複数の金融機関で送金が滞留。サイバー攻撃ではないが、基幹の一点が止まったときの影響範囲の大きさを示した。</li>
-            </ul>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>従来のフィッシングは、日本語の不自然さや体裁の粗さで見分けがついた。生成AIは、この最後の手がかりを消した。取引先の文体を模した文面、実在する案件名、直前のやり取りを踏まえた自然な返信が、費用をかけずに量産できる。</p>
+              <p>侵入の手口としても、添付ファイルの実行より<strong>URLをクリックさせる形が主流</strong>になっている。Web会議の招待、共有ファイルの通知、正規サービスを装ったログイン画面など、業務上クリックが避けられない導線が狙われる。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2026年6月／国内・通信事業者</span>メールシステムへの不正アクセスにより、メールアドレスとパスワード最大1,422万件が漏えいした可能性が公表された。窃取された認証情報は、次の攻撃の入口として再利用される。</li>
+                <li><span class="casetag">継続的な傾向</span>AIの悪用によりサイバー攻撃の80〜90%を自動的に実行できるとの報告があり、標的への情報収集と、標的を信頼させるためのおとりの作成にAIが用いられていることが確認されている。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>「人が見抜く」ことを前提にした対策から降りる。</strong>教育は必要だが、生成AIが作る文面を見分けさせる訓練には限界がある。</li>
+                <li><strong>クリックされた後に何が起きるかを設計する。</strong>認証情報が渡っても即座に横展開されない構成（フィッシング耐性のある認証、端末と権限の分離）が実質的な防御線になる。</li>
+                <li><strong>認証情報の使い回しと再利用を前提に監視する。</strong>他社から漏れた情報が、自社への入口になる。</li>
+              </ul>
+            </div>
           </div>
-          <div class="rblock rblock--fix">
-            <h4>講じるべき対策</h4>
-            <ul>
-              <li><strong>ソースコード診断を、行数を理由に諦めない。</strong>従量課金であれば対象範囲を段階的に広げられる。まず外部接点を持つ領域と機密情報を扱う領域から着手し、基幹へ広げる進め方が現実的である。</li>
-              <li><strong>診断で終わらせず、修正コード案の提示までを要件に含める。</strong>指摘だけを受け取っても、勘定系では改修に踏み切れない。</li>
-              <li><strong>中長期にはAIが解析・修正しやすいコードへの刷新（モダナイゼーション）を計画に織り込む。</strong>脆弱性が多すぎるシステムは、個別対応より構造の刷新のほうが早い。</li>
-            </ul>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- リスク3 -->
-      <article class="risk" id="risk-3">
-        <div class="risk__head">
-          <span class="risk__num">リスク 03</span>
-          <h3>対外接続系──業界インフラへの参加口が、被害の伝播経路になる</h3>
-          <p class="risk__where">構成図上の位置：④ 対外接続系（全銀システム・日銀ネット・SWIFT・CAFIS 等）</p>
-        </div>
-        <div class="risk__grid">
-          <div class="rblock rblock--why">
-            <h4>なぜ、いま顕在化したのか</h4>
-            <p>対外接続系は、仕様が公開または準公開されており、電文形式や処理手順が定型である。この定型性は、これまで相互接続性という利点として理解されてきた。AIにとっては、解析と模倣の容易さを意味する。</p>
-            <p>加えてこの層は、自行が侵害された場合に被害を外部へ流し出す経路であると同時に、接続先が侵害された場合に被害を受け取る経路でもある。<strong>防御の境界が自社の内側で完結しない</strong>点が、他の層と決定的に異なる。</p>
+        <article class="risk" id="risk-3">
+          <div class="risk__head">
+            <span class="risk__num">リスク 03 ／ 侵入口</span>
+            <h3>外部に公開したサーバーと、その中のライブラリ</h3>
+            <p class="risk__where">Web・API・公開系システム／内部で利用するオープンソースライブラリ</p>
           </div>
-          <div class="rblock rblock--case">
-            <h4>実際に起きたこと</h4>
-            <ul>
-              <li><span class="casetag">2016年／バングラデシュ中央銀行</span>SWIFT接続端末を経由した不正送金により約8,100万ドルが流出。国際送金網そのものではなく、参加行側の端末環境が突破口となった。</li>
-              <li><span class="casetag">2025年2月／暗号資産取引所 Bybit</span>約15億ドル（当時約2,300億円）相当の暗号資産が流出。米連邦捜査局は北朝鮮のサイバー攻撃グループの関与を特定・公表した。国家背景の攻撃者にとって金融機関は最優先の標的である。</li>
-            </ul>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>外部に公開している資産は、攻撃者から見て常時観測できる面である。年に一度の脆弱性診断で確認していた範囲は、AIによる継続的かつ網羅的な走査の対象に変わった。</p>
+              <p>より見落とされやすいのが、その中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。ライブラリは日々大量に更新され、人手で追随できる量ではない。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2025年4月／国内・電気通信事業者</span>法人向けメールセキュリティサービスがゼロデイ脆弱性を突かれ、メールアカウント・パスワード・メール本文が流出。共通基盤が破られたため、被害は利用企業側へ一斉に及んだ。</li>
+                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>外部公開システムのブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
+                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。取引条件としての要求は今後強まる。</li>
+                <li><strong>コード改修までの露出時間を仮想パッチで埋める。</strong>監督官庁の要請項目にも多層防御として明記されている。</li>
+              </ul>
+            </div>
           </div>
-          <div class="rblock rblock--fix">
-            <h4>講じるべき対策</h4>
-            <ul>
-              <li><strong>接続系のゲートウェイと周辺端末を、優先度の最上位で診断対象に指定する。</strong>本体の勘定系より先に、接続の出入口を確認する。</li>
-              <li><strong>共同運営システムについて、責任分担を文書で明確化する。</strong>監督官庁の要請項目にも含まれており、対応実績として説明可能な形で残す。</li>
-              <li><strong>接続先の停止を前提とした業務継続手順を、机上でなく実地で検証する。</strong>接続先の障害は自行の努力では防げない。</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- リスク4 -->
-      <article class="risk" id="risk-4">
-        <div class="risk__head">
-          <span class="risk__num">リスク 04</span>
-          <h3>グループ会社・委託先という迂回路──正面から入る必要がない</h3>
-          <p class="risk__where">構成図上の位置：全層を横断（最大の隙間／縦断A 共通基盤）</p>
-        </div>
-        <div class="risk__grid">
-          <div class="rblock rblock--why">
-            <h4>なぜ、いま顕在化したのか</h4>
-            <p>グループ会社と委託先を含めれば、接続点は数百から数千に及ぶ。従来、そのすべてを継続的に調べ上げることは攻撃者にとってもコストが高く、実質的な防壁として機能していた。</p>
-            <p>AIによる偵察の自動化が、この防壁を無効化した。<strong>攻撃者は連結する全社を並列に走査し、最も守りの薄い一社を選び出せる。</strong>本体のセキュリティ投資額は、この経路に対しては意味を持たない。</p>
-          </div>
-          <div class="rblock rblock--case">
-            <h4>実際に起きたこと</h4>
-            <ul>
-              <li><span class="casetag">2025年10月／国内・大手通販事業者</span>業務委託先のリモート接続用アカウント（多要素認証なし）が悪用されて侵入され、ランサムウェアにより受注・出荷が停止。配送を委託していた複数の小売企業の通販事業も連鎖的に停止し、医療・介護現場の物品供給にも影響が及んだ。</li>
-              <li><span class="casetag">2024年6月／国内・大手出版グループ</span>ウェブサービスの停止にとどまらず書籍流通事業にまで影響が波及。社内外約25万人分のデータが窃取され、一部がダークウェブ上に公開された。</li>
-            </ul>
-          </div>
-          <div class="rblock rblock--fix">
-            <h4>講じるべき対策</h4>
-            <ul>
-              <li><strong>診断の範囲を、本体ではなくグループ・委託先を含む連結の単位で定義する。</strong>本体だけを診断しても、実際の侵入口は対象外に残る。</li>
-              <li><strong>委託先の接続アカウントについて、多要素認証と権限の棚卸しを取引条件として要求する。</strong>直近の重大事案は、いずれもこの一点を起点としている。</li>
-              <li><strong>グループ横断で診断・修復の基準を統一する。</strong>各社が個別に選定すると、水準のばらつきがそのまま弱点になる。</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- リスク5 -->
-      <article class="risk" id="risk-5">
-        <div class="risk__head">
-          <span class="risk__num">リスク 05</span>
-          <h3>検出したあとに止まる──修復がボトルネックになる</h3>
-          <p class="risk__where">構成図上の位置：全層を横断（縦断A 共通基盤 ／ 縦断B ガバナンス）</p>
-        </div>
-        <div class="risk__grid">
-          <div class="rblock rblock--why">
-            <h4>なぜ、いま顕在化したのか</h4>
-            <p>AI診断の導入は、これまで見えていなかった脆弱性を可視化する。同時に、組織が処理しきれない量の指摘をもたらす。ソフトバンクが自社の1,800システムを検証した際には10,500件の脆弱性が検出され、うち4,000件が要対応項目として特定された。</p>
-            <p>ここで発生するのは、担当者の疲弊だけではない。<strong>「検出したが修復していない」という記録が、監査と訴訟の局面で不利に働く。</strong>可視化した以上、放置は認識のある不作為と評価されうる。</p>
-          </div>
-          <div class="rblock rblock--case">
-            <h4>実際に起きたこと</h4>
-            <ul>
-              <li><span class="casetag">ソフトバンク自社での検証</span>対象1,800システム（社内管理700／外部ベンダー管理1,100）に対し、検出脆弱性10,500件のうち4,000件を要対応項目として短期間で特定。検出そのものではなく、その後の処理設計が課題となった。</li>
-              <li><span class="casetag">業界共通の実態</span>アラート疲れと専門人材の不足は各社で常態化しており、長年運用されたレガシーコードほど「触るのが怖い」ものとして修正が後回しにされる傾向がある。</li>
-            </ul>
-          </div>
-          <div class="rblock rblock--fix">
-            <h4>講じるべき対策</h4>
-            <ul>
-              <li><strong>診断サービスの選定要件に「対応優先度の判定」と「修正コード案の提示」を必須で含める。</strong>指摘一覧だけを受け取る契約では、ボトルネックは解消しない。</li>
-              <li><strong>パッチ適用までを外部化できる体制を確保する。</strong>自社エンジニアの増員を前提とした計画は、人材市場の実態から成立しにくい。</li>
-              <li><strong>継続再診断を前提に設計する。</strong>一度きりの診断は、実施した時点の状態しか証明しない。要請への適合を継続的に示すには、再診断が組み込まれている必要がある。</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
+        </article>
+      </div>
     </div>
+
+    <div class="vgroup">
+      <div class="vgroup__hd">
+        <span class="vgroup__n">観点 ② ／ LATERAL</span>
+        <span class="vgroup__t">感染拡大と重要資産 ── 入られた後、どこへ向かうか</span>
+        <span class="vgroup__d">侵入は目的ではなく起点である。攻撃者は権限を上げながら横へ広がり、重要資産へ到達する。この工程を止められるかどうかが、被害規模を決める。</span>
+      </div>
+
+      <div class="risks">
+        <article class="risk" id="risk-4">
+          <div class="risk__head">
+            <span class="risk__num">リスク 04 ／ 感染拡大</span>
+            <h3>特権ID（Tier 0）の奪取と、仮想化・バックアップ基盤の掌握</h3>
+            <p class="risk__where">AD・Entra ID／PIM・PAM（特権ID・特権アクセス管理）／ハイパーバイザー／バックアップ</p>
+          </div>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>典型的な攻撃は次の順序をたどる。一般従業員の端末を掌握し、情報システム部門のアカウントへ移り、<strong>特権IDを奪って、そこを起点に重要資産へアクセスする。</strong>ID基盤は、奪われた時点で他のすべての対策が無効になるため「Tier 0」と呼ばれる。</p>
+              <p>近年これに加えて標的になっているのが、仮想化基盤とバックアップ基盤である。ハイパーバイザーを掌握すれば、その上で動くすべての仮想マシンを操作できる。利用者は、自分が接続している仮想マシンが乗っ取られていることに気づかないまま認証情報を入力してしまう。バックアップまで暗号化されれば、復旧の手段そのものが失われる。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2025年〜2026年／仮想化基盤</span>VMware ESXi の脆弱性（CVE-2025-22224 ほか）が実環境で悪用され、米CISAが警告を発出。ハイパーバイザーにバックドアを設置する攻撃も報告されている。2026年3月以降に確認されたランサムウェアは、稼働中の仮想マシンを停止させたうえでディスクを暗号化していた。</li>
+                <li><span class="casetag">2025年10月／国内・大手通販事業者</span>同一データセンター内のバックアップまで暗号化され、復旧手段が失われた。全サービスの復旧までに約3ヶ月を要している。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>Tier 0 を、他のシステムと同じ運用基準で扱わない。</strong>特権IDの棚卸し、常時付与の廃止（必要な時だけ昇格させる）、管理端末の分離が前提になる。</li>
+                <li><strong>仮想化基盤とバックアップ基盤を、独立した診断対象として扱う。</strong>業務システムの診断範囲に含まれず、見落とされやすい。</li>
+                <li><strong>バックアップは、本番と同じ経路から到達できない場所に置く。</strong>同一データセンター内での保管は、ランサム攻撃に対して機能しない。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="risk" id="risk-5">
+          <div class="risk__head">
+            <span class="risk__num">リスク 05 ／ 重要資産</span>
+            <h3>クラウンジュエルは勘定系とは限らない──最も狙われるのは顧客情報</h3>
+            <p class="risk__where">CRM・顧客情報基盤／取引・決済データ／閉域網で隔離された重要資産</p>
+          </div>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>金融機関の重要資産といえば勘定系を想起しがちだが、実際に攻撃者が価値を見出すのは<strong>顧客情報である</strong>。勘定系は閉域網と専用回線で隔離され、建物単位で入退室が管理されているのに対し、CRMや顧客情報基盤は業務上、より多くの部門とシステムから参照される。</p>
+              <p>加えて、これらの領域は勘定系と技術構成が異なる。刷新が進んだ結果、比較的新しい基盤の上に載っていることも多く、「古いから危ない」という前提では判断を誤る。<strong>守るべき対象は、稼働年数ではなく、失った場合の影響で決める必要がある。</strong></p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2025年10月／国内・大手通販事業者</span>約74万件の個人情報が流出し、攻撃者のリークサイトに関連情報が投稿された。業務停止と情報流出が同時に発生している。</li>
+                <li><span class="casetag">2024年2月／米国・医療決済基盤</span>約1億9,000万人分が影響を受け、同国史上最大の医療データ侵害となった。身代金を支払ったにもかかわらずデータは公開された。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>まず、自社のクラウンジュエルを特定して合意する。</strong>「勘定系」と決め打ちせず、失った場合の影響で順位付けする。監督官庁の要請項目にある「優先システムの特定」は、この作業を指している。</li>
+                <li><strong>重要資産と、そこへ到達できる経路を対にして管理する。</strong>資産だけを守っても、参照権限を持つ周辺システムが空いていれば迂回される。</li>
+                <li><strong>診断の優先順位を、外部接点・機密情報・基幹の3軸で決める。</strong>全システムの同時診断は規模の面で現実的ではない。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="vgroup">
+      <div class="vgroup__hd">
+        <span class="vgroup__n">観点 ③ ／ EGRESS</span>
+        <span class="vgroup__t">イグレス ── 何を通じて外へ出るか</span>
+        <span class="vgroup__d">情報の持ち出しは、ネットワークの種別ではなく通信プロトコル単位で起きる。業務で使っている通信ほど、監視の網から外れやすい。</span>
+      </div>
+
+      <div class="risks">
+        <article class="risk" id="risk-6">
+          <div class="risk__head">
+            <span class="risk__num">リスク 06 ／ 持ち出し口</span>
+            <h3>出口は、業務で使っている通信そのもの</h3>
+            <p class="risk__where">HTTPS／SMTP・IMAP／FTP・SFTP／DNS／対外接続系</p>
+          </div>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>攻撃者はデータを持ち出す際、専用の通信路を新設しない。<strong>業務で常用されている通信に紛れ込ませる。</strong>暗号化されたHTTPS通信は中身が見えず、メールは日常的に外部へ出て行き、ファイル転送は業務上の正当な用途を持つ。</p>
+              <p>加えて対外接続系は、被害を受け取る経路であると同時に、自行の侵害を外部へ流し出す経路でもある。<strong>防御の境界が自社の内側で完結しない</strong>点が、他の工程と決定的に異なる。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2024年2月／米国・医療決済基盤</span>ランサムウェアが展開される前の9日間で、約6テラバイトのデータが持ち出されていた。暗号化による業務停止は、流出が完了した後に起きている。</li>
+                <li><span class="casetag">2025年2月／暗号資産取引所</span>約15億ドル相当が流出。米連邦捜査局は北朝鮮のサイバー攻撃グループの関与を特定・公表した。金融は国家背景の攻撃者にとって最優先の標的である。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>出口をプロトコル単位で棚卸しする。</strong>「どのネットワークから出られるか」ではなく「どの通信で外へ出せるか」で洗い出す。</li>
+                <li><strong>暗号化されるまでの時間を前提に設計する。</strong>暗号化される前に大量のデータが出ていく。検知の起点は暗号化ではなく、通信量と宛先の異常に置く。</li>
+                <li><strong>共同運営システムの責任分担を文書で明確化する。</strong>監督官庁の要請項目に含まれており、対応実績として説明可能な形で残す。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="protos">
+        <div class="proto"><b>HTTPS</b><span>暗号化により中身が見えない。最も使われる持ち出し経路。</span></div>
+        <div class="proto"><b>SMTP・IMAP</b><span>メールは日常的に外部へ出る。添付・転送設定の悪用。</span></div>
+        <div class="proto"><b>FTP・SFTP</b><span>業務上の正当なファイル転送に紛れる。大容量を運べる。</span></div>
+        <div class="proto"><b>DNS</b><span>遮断しにくく、監視されにくい。少量ずつ長時間かけて運ぶ。</span></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ============ 第4章 ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section__head">
@@ -760,12 +830,12 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <div class="step">
         <span class="step__n">選定軸 02</span>
         <h4>機密情報を扱うシステム</h4>
-        <p>顧客管理、契約・申込・決済情報、問い合わせ履歴。情報漏えい・不正閲覧の影響が大きく、認証・権限管理の不備を確認する必要がある。</p>
+        <p>顧客管理（CRM）、契約・申込・決済情報、問い合わせ履歴。情報漏えい・不正閲覧の影響が大きく、認証・権限管理の不備を確認する必要がある。</p>
       </div>
       <div class="step">
         <span class="step__n">選定軸 03</span>
         <h4>基幹システム</h4>
-        <p>勘定系、資金決済、対外接続。停止・改ざんが事業継続に直結し、長期運用でリスクが蓄積しやすい。優先度は最も高いが、着手は上2つの実績を踏まえた段階が現実的。</p>
+        <p>勘定系、資金決済、対外接続。停止・改ざんが事業継続に直結する。優先度は高いが、着手は上2つの実績を踏まえた段階が現実的。</p>
       </div>
     </div>
 
@@ -777,7 +847,6 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
   </div>
 </section>
 
-<!-- ============ 第5章 PaaS ============ -->
 <section class="section paas">
   <div class="wrap">
     <div class="section__head">
@@ -871,7 +940,6 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
   </div>
 </section>
 
-<!-- ============ 出典 ============ -->
 <section class="section sources">
   <div class="wrap">
     <div class="section__head">
@@ -879,15 +947,17 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <h2>出典・注記</h2>
     </div>
     <ol>
-      <li>内閣官房 国家サイバー統括室「サイバーセキュリティ2026（2025年度年次報告・2026年度年次計画）」2026年7月31日 サイバーセキュリティ戦略本部決定。AIによるサイバー攻撃の自動実行に関する報告、フロンティアAIのサイバーセキュリティ性能向上、Project YATA-Shield、重要インフラのサイバーセキュリティ対策のための統一基準（2026年10月施行予定）、および国内外の被害事例に関する記述。</li>
-      <li>SB OAI Japan「Patching as a Service サービスご説明資料」2026年7月27日版。サービス内容、ご提供価格、データ管理ポリシー、秘密保持条項、免責事項、診断対象システムの選定観点、サービス提供の流れ。</li>
-      <li>SB OAI Japan「PaaSの概要」。フロンティアAIが発見した脆弱性の例（OpenBSD 27年／FFmpeg 16年／FreeBSD 17年）、診断実績（1,000万行あたり平均280件、うち緊急・高リスク約25%）、AI診断エンジンGPT 5.5-Cyber。</li>
-      <li>ソフトバンク自社における攻撃観測および脆弱性検証結果（2025年度）。偵察行為3億件／月、不正侵入試行6万件／月、DDoS攻撃2,800件／月。対象1,800システム、検出脆弱性10,500件、要対応4,000件。</li>
-      <li>各社公表情報および公開報道。国内・電気通信事業者のメールセキュリティサービスへの不正アクセス（2025年4月）、大手通販事業者へのランサムウェア攻撃（2025年10月）、大手出版グループへのランサムウェア攻撃（2024年6月）、全国銀行データ通信システムの障害（2023年10月）、米国医療決済基盤へのランサムウェア攻撃（2024年2月）、暗号資産取引所Bybitからの資産流出（2025年2月）、バングラデシュ中央銀行のSWIFT不正送金（2016年）。</li>
+      <li>IPA（独立行政法人 情報処理推進機構）「情報セキュリティ10大脅威 2026」2026年1月29日公表・組織編。1位「ランサム攻撃による被害」、2位「サプライチェーンや委託先を狙った攻撃」（ともに2023年から4年連続）、3位「AIの利用をめぐるサイバーリスク」（2026年版で初のトップ3）。</li>
+      <li>内閣官房 国家サイバー統括室「サイバーセキュリティ2026（2025年度年次報告・2026年度年次計画）」2026年7月31日 サイバーセキュリティ戦略本部決定。AIによるサイバー攻撃の自動実行に関する報告、フロンティアAIのサイバーセキュリティ性能向上、Project YATA-Shield、重要インフラのサイバーセキュリティ対策のための統一基準（2026年10月施行予定）、国内外の被害事例。</li>
+      <li>経済産業省「ソフトウェア管理に向けたSBOM（Software Bill of Materials）の導入に関する手引」（2023年7月策定、2024年8月改訂）、および「サイバーセキュリティのためのSBOMの最小要素に関する国際ガイダンス」への共同署名（2026年7月30日、経済産業省・国家サイバー統括室）。<strong>国内でSBOM作成を法的に義務づける制度は本レポート作成時点で存在しない。</strong>EUサイバーレジリエンス法（CRA）は2027年から段階適用。</li>
+      <li>VMware ESXi を標的とした攻撃：VMware セキュリティアドバイザリ VMSA-2025-0004（CVE-2025-22224 ほか、実環境での悪用を確認）、米CISAによる警告、および2026年3月以降に確認されたランサムウェアの解析結果（稼働中の仮想マシンを停止させたうえでディスクを暗号化）。</li>
+      <li>SB OAI Japan「Patching as a Service サービスご説明資料」2026年7月27日版、および「PaaSの概要」。サービス内容、ご提供価格、データ管理ポリシー、秘密保持条項、免責事項、診断対象システムの選定観点、フロンティアAIが発見した脆弱性の例、診断実績（1,000万行あたり平均280件、うち緊急・高リスク約25%）、AI診断エンジンGPT 5.5-Cyber。</li>
+      <li>ソフトバンク自社における攻撃観測および脆弱性検証結果（2025年度）。偵察行為3億件／月。対象1,800システム、検出脆弱性10,500件、要対応4,000件。</li>
+      <li>各社公表情報および公開報道。国内・電気通信事業者のメールセキュリティサービスへの不正アクセス（2025年4月）、国内・通信事業者のメールシステムへの不正アクセス（2026年6月）、大手通販事業者へのランサムウェア攻撃（2025年10月）、米国医療決済基盤へのランサムウェア攻撃（2024年2月）、暗号資産取引所からの資産流出（2025年2月）。</li>
       <li>本レポートに記載した監督官庁からの要請内容および対応項目は、公表資料および業界公表情報に基づく整理です。個別の要請文書の解釈および自社の適合状況の判断については、貴行のリスク管理部門・法務部門にご確認ください。</li>
     </ol>
     <p class="disclaimer">
-      本レポートは、メガバンクにおける情報システムの一般的な構成を前提とした整理であり、特定の金融機関のシステム構成、セキュリティ対策状況、脆弱性の有無について言及するものではありません。記載した被害事例は、各社の公表情報および公開報道に基づく本レポート作成時点での整理です。<br>
+      本レポートは、メガバンクにおける情報システムの一般的な構成を前提とした整理であり、特定の金融機関のシステム構成、セキュリティ対策状況、脆弱性の有無について言及するものではありません。記載した被害事例は、各社の公表情報および公開報道に基づく本レポート作成時点での整理であり、原則として直近1年以内、長くとも3年以内の事案に限定しています。<br>
       発行：SB OAI Japan 合同会社　／　2026年8月
     </p>
   </div>
