@@ -204,6 +204,40 @@ strong{font-weight:700;color:var(--ink)}
 .premise .p-out{border-top-color:var(--amber)}
 .premise .zone{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;font-weight:600;color:var(--faint)}
 
+/* ---------- keyword map (散布図) ---------- */
+.kmfig{margin:2.75rem 0 0}
+.km-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:1.25rem}
+.km-scroll > svg{display:block;width:100%;min-width:940px;height:auto}
+.km-t{font-family:var(--f-body)}
+.km-t.km-in{fill:var(--crimson)}
+.km-t.km-core{fill:var(--blue)}
+.km-t.km-out{fill:var(--amber)}
+.km-t.km-gov{fill:var(--ink)}
+.km-w4,.km-w3{font-weight:700}
+.km-w2{font-weight:500}
+.km-w1{font-weight:400}
+.km-plot{fill:none;stroke:var(--rule-soft);stroke-width:1}
+.km-hot{fill:var(--crimson-wash);opacity:.55}
+.km-grid{stroke:var(--rule-soft);stroke-width:1;stroke-dasharray:4 5}
+.km-axis{stroke:var(--rule);stroke-width:1}
+.km-arrow{fill:var(--rule)}
+.km-axtxt{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;font-weight:600;fill:var(--faint)}
+.km-axhd{font-family:var(--f-body);font-size:12.5px;font-weight:700;fill:var(--muted)}
+.km-quad{font-family:var(--f-body);font-size:11.5px;font-weight:700;fill:var(--faint)}
+.km-quad-hot{fill:var(--crimson);opacity:.85}
+.km-legend{display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;margin-top:1rem;font-size:.78rem;color:var(--muted);font-family:var(--f-body)}
+.km-legend span{display:inline-flex;align-items:center;gap:.42rem}
+.km-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+.km-legend .l-in{background:var(--crimson)}
+.km-legend .l-core{background:var(--blue)}
+.km-legend .l-out{background:var(--amber)}
+.km-legend .l-gov{background:var(--ink)}
+.km-legend em{font-style:normal;color:var(--faint)}
+.km-read{margin-top:1.6rem;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.km-read > div{border-top:2px solid var(--rule);padding-top:.85rem}
+.km-read h4{font-size:.95rem;color:var(--ink);margin-bottom:.4rem}
+.km-read p{font-size:.85rem;color:var(--muted);line-height:1.85}
+
 /* ---------- flow figure ---------- */
 .flowfig{margin:2.75rem 0 0}
 .flowfig__cap{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);font-weight:600;margin-bottom:.9rem}
@@ -487,7 +521,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <div class="flowfig__scroll">
 <svg viewBox="0 0 1000 440" role="img" aria-labelledby="flowTitle flowDesc">
 <title id="flowTitle">侵入口・感染拡大・持ち出し口の構造</title>
-<desc id="flowDesc">委託先・従業員端末・外部公開サーバーの3つの侵入口から侵入され、特権IDを奪われて重要資産へ感染が拡大し、通信プロトコルを通じて外部へデータが持ち出され、取引先金融機関や決済・清算インフラ、社会機能へ波及する構造を示した図。</desc>
+<desc id="flowDesc">外部に露出したサーバー（会員サイト・法人向けEB・公開API）の既知の脆弱性、委託先・取引先、従業員端末という3つの侵入口から侵入され、特権IDを奪われて重要資産へ感染が拡大し、通信プロトコルを通じて外部へデータが持ち出され、取引先金融機関や決済・清算インフラ、社会機能へ波及する構造を示した図。</desc>
 
 <rect class="dg-mark-in" x="30" y="19" width="9" height="9"/>
 <text class="dg-label" x="45" y="28">① アクセス経路（侵入口）</text>
@@ -497,17 +531,17 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <text class="dg-label" x="640" y="28">③ イグレスと波及先</text>
 
 <rect class="dg-box" x="30" y="62" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="88">委託先・取引先</text>
-<text class="dg-t" x="46" y="112">保守・運用の外部アカウント</text>
-<text class="dg-m" x="46" y="138">IPA 10大脅威 2026 ／ 2位</text>
+<text class="dg-tagtxt" x="46" y="88">外部に露出したサーバー</text>
+<text class="dg-t" x="46" y="112">会員サイト・法人EB・公開API</text>
+<text class="dg-m" x="46" y="138">既知の脆弱性が未修正のまま</text>
 <rect class="dg-box" x="30" y="184" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="210">従業員の端末</text>
-<text class="dg-t" x="46" y="234">なりすまし・URLクリック</text>
-<text class="dg-m" x="46" y="260">Web会議・ファイル実行</text>
+<text class="dg-tagtxt" x="46" y="210">委託先・取引先</text>
+<text class="dg-t" x="46" y="234">保守・運用の外部アカウント</text>
+<text class="dg-m" x="46" y="260">IPA 10大脅威 2026 ／ 2位</text>
 <rect class="dg-box" x="30" y="306" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="332">外部公開サーバー</text>
-<text class="dg-t" x="46" y="356">Web・API・公開系</text>
-<text class="dg-m" x="46" y="382">内部のライブラリを含む</text>
+<text class="dg-tagtxt" x="46" y="332">従業員の端末</text>
+<text class="dg-t" x="46" y="356">なりすまし・URLクリック</text>
+<text class="dg-m" x="46" y="382">Web会議・ファイル実行</text>
 
 <polygon class="dg-arrow-in" points="284,101 352,101 352,90 380,112 352,134 352,123 284,123"/>
 <polygon class="dg-arrow-in" points="284,223 352,223 352,212 380,234 352,256 352,245 284,245"/>
@@ -561,8 +595,8 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
     <div class="premise">
       <div class="p-in">
         <span class="zone">① アクセス経路</span>
-        <h4>入口は、本体の外側に広がっている</h4>
-        <p>グループ会社と委託先を含めれば接続点は数百から数千に及ぶ。攻撃者は本体を正面から狙う必要がない。ソフトバンクが自社を診断した際、対象1,800システムのうち1,100システムが外部ベンダー管理下にあった。</p>
+        <h4>入口は、外から見えている資産にある</h4>
+        <p>最初に狙われるのは、外部に露出したサーバーと機器である。会員サイト、法人向けEB、公開API。<strong>既知の脆弱性が公開されていて修正が未適用であれば、認証情報を盗む手間すら要らない。</strong>グループ会社と委託先まで含めれば接続点は数百から数千に及び、その先の露出資産まで数えれば面はさらに広い。ソフトバンクが自社を診断した際、対象1,800システムのうち1,100システムが外部ベンダー管理下にあった。</p>
       </div>
       <div class="p-core">
         <span class="zone">② 感染拡大と重要資産</span>
@@ -597,6 +631,35 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
         <article class="risk" id="risk-1">
           <div class="risk__head">
             <span class="risk__num">リスク 01 ／ 侵入口</span>
+            <h3>外部に露出したサーバーの既知脆弱性──公開系と、その中のライブラリ</h3>
+            <p class="risk__where">Web・API・公開系システム／内部で利用するオープンソースライブラリ</p>
+          </div>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>外部に公開している資産は、攻撃者から見て常時観測できる面である。年に一度の脆弱性診断で確認していた範囲は、AIによる継続的かつ網羅的な走査の対象に変わった。</p>
+              <p>より見落とされやすいのが、その中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。ライブラリは日々大量に更新され、人手で追随できる量ではない。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2025年4月／国内・電気通信事業者</span>法人向けメールセキュリティサービスがゼロデイ脆弱性を突かれ、メールアカウント・パスワード・メール本文が流出。共通基盤が破られたため、被害は利用企業側へ一斉に及んだ。</li>
+                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>外部公開システムのブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
+                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。取引条件としての要求は今後強まる。</li>
+                <li><strong>コード改修までの露出時間を仮想パッチで埋める。</strong>監督官庁の要請項目にも多層防御として明記されている。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="risk" id="risk-2">
+          <div class="risk__head">
+            <span class="risk__num">リスク 02 ／ 侵入口</span>
             <h3>委託先・取引先のアカウント──4年連続で国内2位の脅威</h3>
             <p class="risk__where">IPA 10大脅威 2026・組織 2位「サプライチェーンや委託先を狙った攻撃」</p>
           </div>
@@ -623,9 +686,9 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             </div>
           </div>
         </article>
-        <article class="risk" id="risk-2">
+        <article class="risk" id="risk-3">
           <div class="risk__head">
-            <span class="risk__num">リスク 02 ／ 侵入口</span>
+            <span class="risk__num">リスク 03 ／ 侵入口</span>
             <h3>従業員の端末──URLをクリックさせる攻撃が主流になった</h3>
             <p class="risk__where">なりすましメール／偽サイト／Web会議／受領ファイルの実行</p>
           </div>
@@ -648,35 +711,6 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
                 <li><strong>「人が見抜く」ことを前提にした対策から降りる。</strong>教育は必要だが、生成AIが作る文面を見分けさせる訓練には限界がある。</li>
                 <li><strong>クリックされた後に何が起きるかを設計する。</strong>認証情報が渡っても即座に横展開されない構成（フィッシング耐性のある認証、端末と権限の分離）が実質的な防御線になる。</li>
                 <li><strong>認証情報の使い回しと再利用を前提に監視する。</strong>他社から漏れた情報が、自社への入口になる。</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="risk" id="risk-3">
-          <div class="risk__head">
-            <span class="risk__num">リスク 03 ／ 侵入口</span>
-            <h3>外部に公開したサーバーと、その中のライブラリ</h3>
-            <p class="risk__where">Web・API・公開系システム／内部で利用するオープンソースライブラリ</p>
-          </div>
-          <div class="risk__grid">
-            <div class="rblock rblock--why">
-              <h4>なぜ、いま顕在化したのか</h4>
-              <p>外部に公開している資産は、攻撃者から見て常時観測できる面である。年に一度の脆弱性診断で確認していた範囲は、AIによる継続的かつ網羅的な走査の対象に変わった。</p>
-              <p>より見落とされやすいのが、その中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。ライブラリは日々大量に更新され、人手で追随できる量ではない。</p>
-            </div>
-            <div class="rblock rblock--case">
-              <h4>実際に起きたこと</h4>
-              <ul>
-                <li><span class="casetag">2025年4月／国内・電気通信事業者</span>法人向けメールセキュリティサービスがゼロデイ脆弱性を突かれ、メールアカウント・パスワード・メール本文が流出。共通基盤が破られたため、被害は利用企業側へ一斉に及んだ。</li>
-                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
-              </ul>
-            </div>
-            <div class="rblock rblock--fix">
-              <h4>講じるべき対策</h4>
-              <ul>
-                <li><strong>外部公開システムのブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
-                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。取引条件としての要求は今後強まる。</li>
-                <li><strong>コード改修までの露出時間を仮想パッチで埋める。</strong>監督官庁の要請項目にも多層防御として明記されている。</li>
               </ul>
             </div>
           </div>

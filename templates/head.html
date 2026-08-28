@@ -204,6 +204,40 @@ strong{font-weight:700;color:var(--ink)}
 .premise .p-out{border-top-color:var(--amber)}
 .premise .zone{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;font-weight:600;color:var(--faint)}
 
+/* ---------- keyword map (散布図) ---------- */
+.kmfig{margin:2.75rem 0 0}
+.km-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:1.25rem}
+.km-scroll > svg{display:block;width:100%;min-width:940px;height:auto}
+.km-t{font-family:var(--f-body)}
+.km-t.km-in{fill:var(--crimson)}
+.km-t.km-core{fill:var(--blue)}
+.km-t.km-out{fill:var(--amber)}
+.km-t.km-gov{fill:var(--ink)}
+.km-w4,.km-w3{font-weight:700}
+.km-w2{font-weight:500}
+.km-w1{font-weight:400}
+.km-plot{fill:none;stroke:var(--rule-soft);stroke-width:1}
+.km-hot{fill:var(--crimson-wash);opacity:.55}
+.km-grid{stroke:var(--rule-soft);stroke-width:1;stroke-dasharray:4 5}
+.km-axis{stroke:var(--rule);stroke-width:1}
+.km-arrow{fill:var(--rule)}
+.km-axtxt{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;font-weight:600;fill:var(--faint)}
+.km-axhd{font-family:var(--f-body);font-size:12.5px;font-weight:700;fill:var(--muted)}
+.km-quad{font-family:var(--f-body);font-size:11.5px;font-weight:700;fill:var(--faint)}
+.km-quad-hot{fill:var(--crimson);opacity:.85}
+.km-legend{display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;margin-top:1rem;font-size:.78rem;color:var(--muted);font-family:var(--f-body)}
+.km-legend span{display:inline-flex;align-items:center;gap:.42rem}
+.km-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+.km-legend .l-in{background:var(--crimson)}
+.km-legend .l-core{background:var(--blue)}
+.km-legend .l-out{background:var(--amber)}
+.km-legend .l-gov{background:var(--ink)}
+.km-legend em{font-style:normal;color:var(--faint)}
+.km-read{margin-top:1.6rem;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.km-read > div{border-top:2px solid var(--rule);padding-top:.85rem}
+.km-read h4{font-size:.95rem;color:var(--ink);margin-bottom:.4rem}
+.km-read p{font-size:.85rem;color:var(--muted);line-height:1.85}
+
 /* ---------- flow figure ---------- */
 .flowfig{margin:2.75rem 0 0}
 .flowfig__cap{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);font-weight:600;margin-bottom:.9rem}

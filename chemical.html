@@ -204,6 +204,40 @@ strong{font-weight:700;color:var(--ink)}
 .premise .p-out{border-top-color:var(--amber)}
 .premise .zone{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;font-weight:600;color:var(--faint)}
 
+/* ---------- keyword map (散布図) ---------- */
+.kmfig{margin:2.75rem 0 0}
+.km-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:1.25rem}
+.km-scroll > svg{display:block;width:100%;min-width:940px;height:auto}
+.km-t{font-family:var(--f-body)}
+.km-t.km-in{fill:var(--crimson)}
+.km-t.km-core{fill:var(--blue)}
+.km-t.km-out{fill:var(--amber)}
+.km-t.km-gov{fill:var(--ink)}
+.km-w4,.km-w3{font-weight:700}
+.km-w2{font-weight:500}
+.km-w1{font-weight:400}
+.km-plot{fill:none;stroke:var(--rule-soft);stroke-width:1}
+.km-hot{fill:var(--crimson-wash);opacity:.55}
+.km-grid{stroke:var(--rule-soft);stroke-width:1;stroke-dasharray:4 5}
+.km-axis{stroke:var(--rule);stroke-width:1}
+.km-arrow{fill:var(--rule)}
+.km-axtxt{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;font-weight:600;fill:var(--faint)}
+.km-axhd{font-family:var(--f-body);font-size:12.5px;font-weight:700;fill:var(--muted)}
+.km-quad{font-family:var(--f-body);font-size:11.5px;font-weight:700;fill:var(--faint)}
+.km-quad-hot{fill:var(--crimson);opacity:.85}
+.km-legend{display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;margin-top:1rem;font-size:.78rem;color:var(--muted);font-family:var(--f-body)}
+.km-legend span{display:inline-flex;align-items:center;gap:.42rem}
+.km-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none}
+.km-legend .l-in{background:var(--crimson)}
+.km-legend .l-core{background:var(--blue)}
+.km-legend .l-out{background:var(--amber)}
+.km-legend .l-gov{background:var(--ink)}
+.km-legend em{font-style:normal;color:var(--faint)}
+.km-read{margin-top:1.6rem;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.km-read > div{border-top:2px solid var(--rule);padding-top:.85rem}
+.km-read h4{font-size:.95rem;color:var(--ink);margin-bottom:.4rem}
+.km-read p{font-size:.85rem;color:var(--muted);line-height:1.85}
+
 /* ---------- flow figure ---------- */
 .flowfig{margin:2.75rem 0 0}
 .flowfig__cap{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;color:var(--faint);font-weight:600;margin-bottom:.9rem}
@@ -401,7 +435,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <div class="sumcard">
         <span class="sumcard__k">結論 03</span>
         <h3>失うのは生産だけではない。技術情報も同時に持ち出される</h3>
-        <p>ランサム攻撃は、暗号化の前にデータを持ち出す。配合レシピ、実験データ、品質記録は、復旧しても取り戻せない。&lt;strong&gt;生産は再開できるが、流出した技術情報は戻らない。&lt;/strong&gt;</p>
+        <p>ランサム攻撃は、暗号化の前にデータを持ち出す。配合レシピ、実験データ、品質記録は、復旧しても取り戻せない。<strong>生産は再開できるが、流出した技術情報は戻らない。</strong></p>
       </div>
     </div>
 
@@ -487,7 +521,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <div class="flowfig__scroll">
 <svg viewBox="0 0 1000 440" role="img" aria-labelledby="flowTitle flowDesc">
 <title id="flowTitle">侵入口・感染拡大・持ち出し口の構造</title>
-<desc id="flowDesc">取引先EDI・調達ポータル、従業員端末、メーカーのリモート保守という3つの侵入口から侵入され、特権IDを奪われてプラント制御系や技術情報へ感染が拡大し、通信プロトコルやEDI連携を通じて完成品メーカーやコンビナート隣接プラントへ影響が波及する構造を示した図。</desc>
+<desc id="flowDesc">外部に露出したサーバー（サプライヤーポータル・公開Web）の既知の脆弱性、取引先EDI・調達ポータル、従業員端末という3つの侵入口から侵入され、グループ共通認証と特権IDを奪われて配合レシピ・プロセス条件などの技術情報へ到達し、IT／OT境界の管理端末・保守回線を経てプラント制御系へ至る構造を示した図。技術情報は流出すれば取り戻せず、制御系は稼働を止められず機器ベンダーの領域にあり、自社が診断・修復できるのは技術情報側と境界であることを示している。</desc>
 
 <rect class="dg-mark-in" x="30" y="19" width="9" height="9"/>
 <text class="dg-label" x="45" y="28">① アクセス経路（侵入口）</text>
@@ -497,17 +531,17 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <text class="dg-label" x="640" y="28">③ イグレスと波及先</text>
 
 <rect class="dg-box" x="30" y="62" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="88">取引先・サプライヤー</text>
-<text class="dg-t" x="46" y="112">EDI・調達ポータル・共通認証</text>
-<text class="dg-m" x="46" y="138">IPA 10大脅威 2026 ／ 2位</text>
+<text class="dg-tagtxt" x="46" y="88">外部に露出したサーバー</text>
+<text class="dg-t" x="46" y="112">サプライヤーポータル・公開Web</text>
+<text class="dg-m" x="46" y="138">既知の脆弱性が未修正のまま</text>
 <rect class="dg-box" x="30" y="184" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="210">従業員の端末</text>
-<text class="dg-t" x="46" y="234">なりすまし・URLクリック</text>
-<text class="dg-m" x="46" y="260">Web会議・ファイル実行</text>
+<text class="dg-tagtxt" x="46" y="210">取引先・サプライヤー</text>
+<text class="dg-t" x="46" y="234">EDI・調達ポータル・共通認証</text>
+<text class="dg-m" x="46" y="260">IPA 10大脅威 2026 ／ 2位</text>
 <rect class="dg-box" x="30" y="306" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="332">メーカーのリモート保守</text>
-<text class="dg-t" x="46" y="356">設備ベンダーの遠隔接続</text>
-<text class="dg-m" x="46" y="382">公開系・内部ライブラリ</text>
+<text class="dg-tagtxt" x="46" y="332">従業員の端末</text>
+<text class="dg-t" x="46" y="356">なりすまし・URLクリック</text>
+<text class="dg-m" x="46" y="382">Web会議・ファイル実行</text>
 
 <polygon class="dg-arrow-in" points="284,101 352,101 352,90 380,112 352,134 352,123 284,123"/>
 <polygon class="dg-arrow-in" points="284,223 352,223 352,212 380,234 352,256 352,245 284,245"/>
@@ -521,16 +555,16 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <ellipse class="dg-core" cx="475" cy="90" rx="95" ry="24"/>
 <ellipse class="dg-corelit" cx="475" cy="90" rx="95" ry="24"/>
 
-<text class="dg-coretxt-lg" x="475" y="140" text-anchor="middle">プラント制御系</text>
-<text class="dg-coretxt" x="475" y="168" text-anchor="middle">DCS・PLC</text>
-<text class="dg-coretxt" x="475" y="190" text-anchor="middle">安全計装（SIS）</text>
-<text class="dg-coretxt" x="475" y="212" text-anchor="middle">緊急停止系・MES</text>
+<text class="dg-coretxt-lg" x="475" y="140" text-anchor="middle">自社の守備範囲</text>
+<text class="dg-corewarn" x="475" y="168" text-anchor="middle">配合レシピ・プロセス条件</text>
+<text class="dg-coremute" x="475" y="190" text-anchor="middle">流出すれば取り戻せない</text>
+<text class="dg-coretxt" x="475" y="212" text-anchor="middle">Tier 0 ／ グループ共通認証</text>
 <line class="dg-coredv" x1="405" y1="228" x2="545" y2="228"/>
-<text class="dg-corewarn" x="475" y="256" text-anchor="middle">Tier 0 ／ 特権ID</text>
-<text class="dg-coretxt" x="475" y="278" text-anchor="middle">グループ共通認証</text>
+<text class="dg-corewarn" x="475" y="256" text-anchor="middle">IT ／ OT 境界</text>
+<text class="dg-coretxt" x="475" y="278" text-anchor="middle">管理端末・保守回線・可搬媒体</text>
 <line class="dg-coredv" x1="405" y1="294" x2="545" y2="294"/>
-<text class="dg-coretxt" x="475" y="322" text-anchor="middle">配合レシピ・R&amp;D データ</text>
-<text class="dg-coremute" x="475" y="344" text-anchor="middle">流出すれば取り戻せない</text>
+<text class="dg-coretxt" x="475" y="322" text-anchor="middle">プラント制御系は止められない</text>
+<text class="dg-coremute" x="475" y="344" text-anchor="middle">DCSベンダー領域・触れられない</text>
 
 <polygon class="dg-arrow-out" points="574,217 590,217 590,208 604,225 590,242 590,233 574,233"/>
 <text class="dg-atxt-out" x="589" y="199" text-anchor="middle">流出</text>
@@ -561,18 +595,18 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
     <div class="premise">
       <div class="p-in">
         <span class="zone">① アクセス経路</span>
-        <h4>入口は、取引網の側にある</h4>
-        <p>完成品メーカーのEDI、調達プラットフォーム、系列共通認証。2次・3次サプライヤーのレガシー系は更新の機会が乏しく、取引網全体で見たときの最も薄い箇所になりやすい。</p>
+        <h4>入口は、外から見えている資産にある</h4>
+        <p>最初に狙われるのは、外部に露出したサーバーと機器である。サプライヤーポータル、公開Web、受発注の連携口。<strong>既知の脆弱性が公開されていて修正が未適用であれば、認証情報を盗む手間すら要らない。</strong>さらに取引網へ視野を広げれば、2次・3次サプライヤー側にも同じ露出資産があり、そちらは更新の機会が乏しい。</p>
       </div>
       <div class="p-core">
         <span class="zone">② 感染拡大と重要資産</span>
-        <h4>守るべきは生産ラインだけではない</h4>
-        <p>攻撃者は端末を起点に特権IDを奪い、制御系と技術情報の双方へ横に広がる。安全計装（SIS）への到達は、事業停止ではなく人的被害の領域に入る。</p>
+        <h4>プラントは再開できる。レシピは戻らない</h4>
+        <p>化学のクラウンジュエルは二層ある。配合レシピ・プロセス条件・実験データは情報系にあり、自社が直接守れる。一方でプラント制御系は稼働を止められず、DCSは機器ベンダーの領域にある。この経路上で自社が実際に診断・修復できるのは、技術情報側とIT／OT境界である。</p>
       </div>
       <div class="p-out">
         <span class="zone">③ イグレスと波及</span>
-        <h4>出口の先は、自社の工場ではない</h4>
-        <p>停止は完成品メーカーのラインを止め、コンビナートでは蒸気・原料の相互供給を通じて隣接プラントへ波及する。技術情報の流出は、競争上の損失として長く残る。</p>
+        <h4>外へ波及するものと、内に残る損失は別である</h4>
+        <p>停止は完成品メーカーのラインを止め、コンビナートでは蒸気・原料の相互供給を通じて隣接プラントへ波及する。これは外へ伝わる被害であり、復旧の対象になる。一方で技術情報の流出は外へ波及するのではなく、自社に回復不能な損失として残る。性質が違うため、対策も指標も別に要る。</p>
       </div>
     </div>
   </div>
@@ -597,6 +631,35 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
         <article class="risk" id="risk-1">
           <div class="risk__head">
             <span class="risk__num">リスク 01 ／ 侵入口</span>
+            <h3>外部に露出したサーバーの既知脆弱性──サプライヤーポータルと、リモート保守経路</h3>
+            <p class="risk__where">メーカーのリモート保守経路／公開系システム／内部で利用するオープンソースライブラリ</p>
+          </div>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>外部に公開している資産は、攻撃者から見て常時観測できる面である。サプライヤーポータル、公開Web、受発注の連携口。年に一度の脆弱性診断で確認していた範囲は、AIによる継続的かつ網羅的な走査の対象に変わった。<strong>公開された脆弱性が修正されないまま露出していれば、認証情報を盗む手間すら要らない。</strong>スマート保安の導入で増えた設備ベンダーの遠隔保守経路も、制御系に近い位置にありながら自社の管理下にないことが多く、同じ性質を持つ。</p>
+              <p>より見落とされやすいのが、公開系システムの中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2026年／国内・医療機関</span>保守用VPNを経由して侵入され、ランサムウェアにより約13万人分の個人情報が漏えいした。別の事案では、VPN機器のアカウント管理の不備が侵入口となったとみられている。</li>
+                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>公開系のブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
+                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。取引先からの要求は今後強まる。</li>
+                <li><strong>リモート保守経路を、独立した診断対象として扱う。</strong>自社の管理外にあるという理由で、診断範囲から外れやすい。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="risk" id="risk-2">
+          <div class="risk__head">
+            <span class="risk__num">リスク 02 ／ 侵入口</span>
             <h3>取引先EDI・調達ポータル──4年連続で国内2位の脅威</h3>
             <p class="risk__where">IPA 10大脅威 2026・組織 2位「サプライチェーンや委託先を狙った攻撃」／系列共通認証基盤</p>
           </div>
@@ -623,9 +686,9 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             </div>
           </div>
         </article>
-        <article class="risk" id="risk-2">
+        <article class="risk" id="risk-3">
           <div class="risk__head">
-            <span class="risk__num">リスク 02 ／ 侵入口</span>
+            <span class="risk__num">リスク 03 ／ 侵入口</span>
             <h3>従業員の端末──URLをクリックさせる攻撃が主流になった</h3>
             <p class="risk__where">なりすましメール／偽サイト／Web会議／受領ファイルの実行</p>
           </div>
@@ -652,35 +715,6 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             </div>
           </div>
         </article>
-        <article class="risk" id="risk-3">
-          <div class="risk__head">
-            <span class="risk__num">リスク 03 ／ 侵入口</span>
-            <h3>設備ベンダーのリモート保守と、その中のライブラリ</h3>
-            <p class="risk__where">メーカーのリモート保守経路／公開系システム／内部で利用するオープンソースライブラリ</p>
-          </div>
-          <div class="risk__grid">
-            <div class="rblock rblock--why">
-              <h4>なぜ、いま顕在化したのか</h4>
-              <p>スマート保安の導入により、設備ベンダーが遠隔から機器の状態を監視・調整する経路が増えている。この回線は制御系に近い位置にありながら、自社の管理下にないことが多い。</p>
-              <p>より見落とされやすいのが、公開系システムの中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。</p>
-            </div>
-            <div class="rblock rblock--case">
-              <h4>実際に起きたこと</h4>
-              <ul>
-                <li><span class="casetag">2026年／国内・医療機関</span>保守用VPNを経由して侵入され、ランサムウェアにより約13万人分の個人情報が漏えいした。別の事案では、VPN機器のアカウント管理の不備が侵入口となったとみられている。</li>
-                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
-              </ul>
-            </div>
-            <div class="rblock rblock--fix">
-              <h4>講じるべき対策</h4>
-              <ul>
-                <li><strong>公開系のブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
-                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。取引先からの要求は今後強まる。</li>
-                <li><strong>リモート保守経路を、独立した診断対象として扱う。</strong>自社の管理外にあるという理由で、診断範囲から外れやすい。</li>
-              </ul>
-            </div>
-          </div>
-        </article>
       </div>
     </div>
     <div class="vgroup">
@@ -701,7 +735,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             <div class="rblock rblock--why">
               <h4>なぜ、いま顕在化したのか</h4>
               <p>典型的な攻撃は次の順序をたどる。一般従業員の端末を掌握し、情報システム部門のアカウントへ移り、<strong>特権IDを奪って、そこを起点に重要資産へアクセスする。</strong>ID基盤は、奪われた時点で他のすべての対策が無効になるため「Tier 0」と呼ばれる。</p>
-              <p>近年これに加えて標的になっているのが、仮想化基盤とバックアップ基盤である。ハイパーバイザーを掌握すれば、その上で動くすべての仮想マシンを操作できる。利用者は、自分が接続している仮想マシンが乗っ取られていることに気づかないまま認証情報を入力してしまう。バックアップまで暗号化されれば、復旧の手段そのものが失われる。 制御系ではさらに、稼働を止められないという理由でパッチ適用が先送りされ、既知の脆弱性が残り続ける。</p>
+              <p>近年これに加えて標的になっているのが、仮想化基盤とバックアップ基盤である。ハイパーバイザーを掌握すれば、その上で動くすべての仮想マシンを操作できる。利用者は、自分が接続している仮想マシンが乗っ取られていることに気づかないまま認証情報を入力してしまう。バックアップまで暗号化されれば、復旧の手段そのものが失われる。 制御系ではさらに、稼働を止められないという理由でパッチ適用が先送りされ、既知の脆弱性が残り続ける。加えてプラントDCSは機器ベンダーの領域にあり、自社の判断だけでは手を入れられない。<strong>自社が実際に修復できるのは、共通認証・管理端末・仮想化基盤といった境界の手前側と、技術情報を扱う情報系である。</strong></p>
             </div>
             <div class="rblock rblock--case">
               <h4>実際に起きたこと</h4>
@@ -723,14 +757,14 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
         <article class="risk" id="risk-5">
           <div class="risk__head">
             <span class="risk__num">リスク 05 ／ 重要資産</span>
-            <h3>クラウンジュエルは生産ラインとは限らない──配合レシピと安全計装</h3>
+            <h3>クラウンジュエルは生産ラインではない──プラントは再開できるが、レシピは戻らない</h3>
             <p class="risk__where">プラントDCS／PLC・安全計装（SIS）／緊急停止系／品質（LIMS）／R&amp;D・実験データ</p>
           </div>
           <div class="risk__grid">
             <div class="rblock rblock--why">
               <h4>なぜ、いま顕在化したのか</h4>
-              <p>化学メーカーのクラウンジュエルは二層ある。ひとつは<strong>配合レシピ・実験データ・品質記録</strong>で、これは流出すれば復旧しても取り戻せない。もうひとつは<strong>安全計装（SIS）と緊急停止系</strong>で、これは改ざんされれば事業停止ではなく人的被害に直結する。</p>
-              <p>前者は情報系に、後者は制御系にある。守り方も担当部署も異なるため、どちらかだけが手厚くなりやすい。<strong>守るべき対象は、稼働年数ではなく、失った場合の影響で決める必要がある。</strong></p>
+              <p>化学メーカーのクラウンジュエルは二層あり、性質がまったく違う。ひとつは<strong>配合レシピ・プロセス条件・実験データ・品質記録</strong>で、これは静かに持ち出され、気づくのは数ヶ月後で、<strong>復旧しても取り戻せない。</strong>もうひとつは<strong>安全計装（SIS）と緊急停止系</strong>で、こちらは改ざんされれば事業停止ではなく人的被害に直結する。</p>
+              <p>前者は情報系にあり、自社が直接守れる。後者は制御系にあり、稼働を止められず機器ベンダーの領域にある。守り方も担当部署も時間軸も異なるため、どちらかだけが手厚くなりやすい。<strong>プラントは復旧すれば再開できるが、流出したレシピは戻らない。</strong>守るべき対象は、稼働年数でも設備の重要度でもなく、失った場合に取り返せるかどうかで決める必要がある。</p>
             </div>
             <div class="rblock rblock--case">
               <h4>実際に起きたこと</h4>
@@ -742,8 +776,8 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             <div class="rblock rblock--fix">
               <h4>講じるべき対策</h4>
               <ul>
-                <li><strong>まず、自社のクラウンジュエルを特定して合意する。</strong>「生産ライン」と決め打ちせず、技術情報と安全系の双方を対象に、失った場合の影響で順位付けする。</li>
-                <li><strong>安全計装（SIS）を、他の制御機器と同じ運用基準で扱わない。</strong>ここへの到達は、事業影響ではなく保安上の問題になる。</li>
+                <li><strong>まず、自社のクラウンジュエルを特定して合意する。</strong>「生産ライン」と決め打ちせず、技術情報と安全系の双方を対象に、取り返せるかどうかで順位付けする。</li>
+                <li><strong>安全計装（SIS）は基本制御系から独立させるのが原則である。その独立性が現に保たれているかを診断対象にする。</strong>設計上の独立と、運用を重ねた後の実態は一致しないことがある。ここへの到達は、事業影響ではなく保安上の問題になる。</li>
                 <li><strong>技術情報については、暗号化より先に持ち出しの検知を設計する。</strong>暗号化されて気づく頃には、流出はすでに終わっている。</li>
               </ul>
             </div>

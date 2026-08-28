@@ -1,4 +1,4 @@
-<title>電力会社には、いま、診る理由がある</title>
+<title>鉄道会社には、いま、診る理由がある</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -401,10 +401,10 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
   <div class="wrap cover__inner">
     <div class="cover__brand">
       <b>SB OAI JAPAN</b>
-      <span class="eyebrow">業界別 AIサイバーセキュリティ・レポート ／ 電力会社編</span>
+      <span class="eyebrow">業界別 AIサイバーセキュリティ・レポート ／ 鉄道会社編</span>
     </div>
-    <h1>電力会社には、<br>いま、<em>診る理由</em>がある。</h1>
-    <p class="cover__lede">2026年7月、国内の大手電力会社で社内システムの資格情報が不正に利用され、グループの役職員と委託先社員あわせて約7万人分の連絡先情報が外部に漏えいした可能性が公表された。電力供給を担うシステムに侵入の痕跡はなかった。それでも、内側の名簿は外に出ている。閉域網だから安全という前提は、すでに崩れている。2026年10月には重要インフラの統一基準が施行される。本レポートは、侵入口・感染拡大・持ち出し口の3観点で、電力会社のどこにリスクが集まっているのかを整理する。</p>
+    <h1>鉄道会社には、<br>いま、<em>診る理由</em>がある。</h1>
+    <p class="cover__lede">2025年7月、北米の列車ブレーキを無線制御する仕組みに認証の欠陥が公表された。報告されていたのは2012年である。13年ものあいだ直されず、修正プロトコルの提供は早くとも2027年とされる。保安系の脆弱性は、見つかってから直るまでが長い。本レポートは、侵入口・感染拡大・持ち出し口の3観点で、鉄道会社のどこにリスクが集まっているのかを整理する。</p>
     <div class="cover__meta">
       <span>2026年8月 発行</span>
       <span>全5章</span>
@@ -418,7 +418,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
     <div class="section__head">
       <span class="section__num">SUMMARY</span>
       <h2>本レポートの結論</h2>
-      <p class="section__sub">起きているのは新種の攻撃ではない。定番の攻撃が、AIによって桁違いの速度で回るようになった。そして制御系は、その速度に対応する設計になっていない。</p>
+      <p class="section__sub">起きているのは新種の攻撃ではない。定番の攻撃が、AIによって桁違いの速度で回るようになった。そして保安系は、直すまでの期間が他業種より長い。</p>
     </div>
 
     <div class="sumgrid">
@@ -429,20 +429,20 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       </div>
       <div class="sumcard">
         <span class="sumcard__k">結論 02</span>
-        <h3>最大の隙間は、IT系とOT系の境界にある</h3>
-        <p>発電・送配電の制御系（OT）は閉域網で守られてきた。しかし遠隔監視、スマート保安、設備保守の外部接続によって、その閉域はすでに閉じていない。境界に置かれた保守回線と接続点が、最も古く、最も監視の薄い場所になっている。</p>
+        <h3>最大の隙間は、業務アプリ基盤にある</h3>
+        <p>運転支援アプリなどを運用する外部委託先のサーバーは、乗務員端末と運行管理系をつなぐ位置にある。<strong>業務システムでも保安システムでもないため、どちらの管理基準からも外れやすい。</strong>攻撃者から見れば、保安系へ最も近づける入口になる。</p>
       </div>
       <div class="sumcard">
         <span class="sumcard__k">結論 03</span>
-        <h3>求められているのは「見つける」の高速化ではなく「直す」の自動化</h3>
-        <p>AI診断はソースコード1,000万行あたり平均約280件の脆弱性を返し、うち約25%が高リスクと判定される。制御系は稼働を止められず、かつ機器ベンダーの領域にあるため、検出しても自社の判断だけでは修正に踏み切れない。ボトルネックは発見側ではなく修復側にある。だからこそ、自社が実際に手を入れられる範囲——IT／OT境界とその手前——を先に定める必要がある。</p>
+        <h3>保安系は、見つかってから直るまでが長い</h3>
+        <p>列車ブレーキの無線制御に関する脆弱性は、2012年に報告されながら2025年まで公表されず、修正プロトコルの提供は早くとも2027年とされる。<strong>コードを直せない期間が数年単位で続く前提に立てば、必要なのは仮想パッチと多層防御による露出時間の圧縮である。</strong></p>
       </div>
     </div>
 
     <div class="stats">
       <div class="stat"><span class="stat__v">1<span style="font-size:.5em;font-weight:500">位</span></span><span class="stat__l">ランサム攻撃による被害（IPA 10大脅威 2026・組織／4年連続）</span></div>
-      <div class="stat"><span class="stat__v">2<span style="font-size:.5em;font-weight:500">位</span></span><span class="stat__l">サプライチェーンや委託先を狙った攻撃（同・4年連続）</span></div>
-      <div class="stat"><span class="stat__v is-calm">10<span style="font-size:.5em;font-weight:500">月1日</span></span><span class="stat__l">重要インフラのサイバーセキュリティ対策のための統一基準が施行</span></div>
+      <div class="stat"><span class="stat__v">7<span style="font-size:.5em;font-weight:500">万台</span></span><span class="stat__l">列車ブレーキの無線制御に影響する機器数（北米、2025年7月公表）</span></div>
+      <div class="stat"><span class="stat__v">2027<span style="font-size:.5em;font-weight:500">年〜</span></span><span class="stat__l">同脆弱性の修正プロトコル提供見込み。それまで露出は続く</span></div>
       <div class="stat"><span class="stat__v is-calm">280<span style="font-size:.5em;font-weight:500">件</span></span><span class="stat__l">ソースコード1,000万行あたりに検出される脆弱性の平均</span></div>
     </div>
   </div>
@@ -502,7 +502,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <p>近年はセキュリティ製品にもAIが搭載され、脆弱性の検知や修正案の提示は自動化されつつある。しかしそこで自動化されたのは「見つける」までであり、<strong>修正コードの適用という最も時間を要する工程は依然として人間側に残されている</strong>。</p>
 
       <h3>1-5　規制はすでに動き出している</h3>
-      <p>政府は、フロンティアAIモデルによるサイバーセキュリティ性能が向上するなかでも我が国のサイバーセキュリティが確保されるよう、AI性能の高度化を踏まえた政府全体としての対策パッケージ「Project YATA-Shield」に基づく取組を進めている。重要インフラ分野については、事業者が分野・事業者横断的に講ずべき対策の基準として「重要インフラのサイバーセキュリティ対策のための統一基準」が2026年10月1日に施行される。電力分野では、これに加えて電気事業法の保安規程、電力制御システムセキュリティガイドライン、経済安全保障推進法にもとづく特定重要設備の導入・委託の事前届出審査が重なる。</p>
+      <p>政府は、フロンティアAIモデルによるサイバーセキュリティ性能が向上するなかでも我が国のサイバーセキュリティが確保されるよう、AI性能の高度化を踏まえた政府全体としての対策パッケージ「Project YATA-Shield」に基づく取組を進めている。重要インフラ分野については、事業者が分野・事業者横断的に講ずべき対策の基準として「重要インフラのサイバーセキュリティ対策のための統一基準」が2026年10月1日に施行される。鉄道分野では、これに加えて鉄道事業法にもとづく国土交通省への輸送障害報告、国土交通省「鉄道分野における情報セキュリティ確保に係る安全ガイドライン」（2024年4月 第5版）、経済安全保障推進法にもとづく事前届出・審査が重なる。</p>
       <p>ソフトウェア構成の透明化も進んでいる。経済産業省は「ソフトウェア管理に向けたSBOM（ソフトウェア部品表）の導入に関する手引」を公表し、2026年7月には国家サイバー統括室とともに、SBOMの最小要素に関する国際ガイダンスへ共同署名した。<strong>現時点で国内に法的な作成義務はない</strong>が、取引先からの要求事項として広がりつつあり、EUのサイバーレジリエンス法（CRA）では2027年から段階的に義務が適用される。</p>
     </div>
   </div>
@@ -511,9 +511,9 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <section class="section">
   <div class="wrap">
     <div class="section__head">
-      <span class="section__num">第 2 章 ／ 電力会社</span>
+      <span class="section__num">第 2 章 ／ 鉄道会社</span>
       <h2>リスクはどこにあるか──侵入口・感染拡大・持ち出し口</h2>
-      <p class="section__sub">セキュリティは、アクセス経路（どこから入られるか）、感染拡大と重要資産（入られた後にどこへ向かうか）、イグレス（何を通じて外へ出るか）の3観点で見る。電力会社の条件をこの3観点に当てはめる。なお以下の図は、発電および一般送配電の設備・給電指令を自社で保有する構成を前提としている。小売事業を主とする場合は、②の中身が需給管理システムと顧客情報基盤に置き換わる。</p>
+      <p class="section__sub">セキュリティは、アクセス経路（どこから入られるか）、感染拡大と重要資産（入られた後にどこへ向かうか）、イグレス（何を通じて外へ出るか）の3観点で見る。鉄道会社の条件をこの3観点に当てはめる。</p>
     </div>
 
     <figure class="flowfig">
@@ -521,7 +521,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <div class="flowfig__scroll">
 <svg viewBox="0 0 1000 440" role="img" aria-labelledby="flowTitle flowDesc">
 <title id="flowTitle">侵入口・感染拡大・持ち出し口の構造</title>
-<desc id="flowDesc">外部に露出したサーバー（需要家向けWeb・代理店ポータル）の既知の脆弱性、保守事業者の遠隔監視回線、従業員端末という3つの侵入口から侵入され、共通ADや特権ID、OT資産の管理端末、仮想化・バックアップ基盤へ感染が拡大し、IT／OT境界の保守回線・可搬媒体を経て制御系へ至る構造を示した図。制御系そのものは稼働を止められず機器ベンダーの領域にあり、自社が診断・修復できるのは境界とその手前であることを示している。</desc>
+<desc id="flowDesc">委託先の業務アプリ基盤、乗務員・従業員端末、予約サイトや券売機などの公開系という3つの侵入口から侵入され、特権IDを奪われて運行管理システムや信号保安系へ感染が拡大し、通信プロトコルや相互直通の連携を通じて運行停止や他社線へ影響が波及する構造を示した図。</desc>
 
 <rect class="dg-mark-in" x="30" y="19" width="9" height="9"/>
 <text class="dg-label" x="45" y="28">① アクセス経路（侵入口）</text>
@@ -531,17 +531,17 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <text class="dg-label" x="640" y="28">③ イグレスと波及先</text>
 
 <rect class="dg-box" x="30" y="62" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="88">外部に露出したサーバー</text>
-<text class="dg-t" x="46" y="112">需要家向けWeb・代理店ポータル</text>
-<text class="dg-m" x="46" y="138">既知の脆弱性が未修正のまま</text>
+<text class="dg-tagtxt" x="46" y="88">委託先の業務アプリ基盤</text>
+<text class="dg-t" x="46" y="112">運転支援アプリ等の外部サーバー</text>
+<text class="dg-m" x="46" y="138">IPA 10大脅威 2026 ／ 2位</text>
 <rect class="dg-box" x="30" y="184" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="210">保守事業者・委託先</text>
-<text class="dg-t" x="46" y="234">設備保守の遠隔監視回線</text>
-<text class="dg-m" x="46" y="260">IPA 10大脅威 2026 ／ 2位</text>
+<text class="dg-tagtxt" x="46" y="210">乗務員・従業員の端末</text>
+<text class="dg-t" x="46" y="234">なりすまし・URLクリック</text>
+<text class="dg-m" x="46" y="260">乗務員端末・駅務端末</text>
 <rect class="dg-box" x="30" y="306" width="250" height="100" rx="2"/>
-<text class="dg-tagtxt" x="46" y="332">従業員の端末</text>
-<text class="dg-t" x="46" y="356">なりすまし・URLクリック</text>
-<text class="dg-m" x="46" y="382">Web会議・ファイル実行</text>
+<text class="dg-tagtxt" x="46" y="332">公開系・券売機・改札</text>
+<text class="dg-t" x="46" y="356">予約サイト・モバイルアプリ</text>
+<text class="dg-m" x="46" y="382">内部のライブラリを含む</text>
 
 <polygon class="dg-arrow-in" points="284,101 352,101 352,90 380,112 352,134 352,123 284,123"/>
 <polygon class="dg-arrow-in" points="284,223 352,223 352,212 380,234 352,256 352,245 284,245"/>
@@ -555,16 +555,16 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <ellipse class="dg-core" cx="475" cy="90" rx="95" ry="24"/>
 <ellipse class="dg-corelit" cx="475" cy="90" rx="95" ry="24"/>
 
-<text class="dg-coretxt-lg" x="475" y="140" text-anchor="middle">自社の守備範囲</text>
-<text class="dg-coretxt" x="475" y="168" text-anchor="middle">Tier 0 ／ 共通AD・特権ID</text>
-<text class="dg-coretxt" x="475" y="190" text-anchor="middle">OT資産の管理端末</text>
-<text class="dg-coretxt" x="475" y="212" text-anchor="middle">仮想化・バックアップ基盤</text>
+<text class="dg-coretxt-lg" x="475" y="140" text-anchor="middle">運行・信号保安系</text>
+<text class="dg-coretxt" x="475" y="168" text-anchor="middle">運行管理（CTC・PRC）</text>
+<text class="dg-coretxt" x="475" y="190" text-anchor="middle">信号・連動装置</text>
+<text class="dg-coretxt" x="475" y="212" text-anchor="middle">ATS・ATC／列車無線</text>
 <line class="dg-coredv" x1="405" y1="228" x2="545" y2="228"/>
-<text class="dg-corewarn" x="475" y="256" text-anchor="middle">IT ／ OT 境界</text>
-<text class="dg-coretxt" x="475" y="278" text-anchor="middle">保守回線・可搬媒体・DMZ</text>
+<text class="dg-corewarn" x="475" y="256" text-anchor="middle">Tier 0 ／ 特権ID</text>
+<text class="dg-coretxt" x="475" y="278" text-anchor="middle">業務系と保安系の分離</text>
 <line class="dg-coredv" x1="405" y1="294" x2="545" y2="294"/>
-<text class="dg-coretxt" x="475" y="322" text-anchor="middle">制御系（OT）は止められない</text>
-<text class="dg-coremute" x="475" y="344" text-anchor="middle">ベンダー領域・触れられない</text>
+<text class="dg-coretxt" x="475" y="322" text-anchor="middle">車両モニタリング</text>
+<text class="dg-coremute" x="475" y="344" text-anchor="middle">直すまでに数年かかる</text>
 
 <polygon class="dg-arrow-out" points="574,217 590,217 590,208 604,225 590,242 590,233 574,233"/>
 <text class="dg-atxt-out" x="589" y="199" text-anchor="middle">流出</text>
@@ -578,16 +578,16 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 
 <polygon class="dg-arrow-out" points="721,81 764,81 764,75 778,85 764,95 764,89 721,89"/>
 <ellipse class="dg-node" cx="880" cy="85" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="90" text-anchor="middle">需要家・広域停電</text>
+<text class="dg-nodetxt" x="880" y="90" text-anchor="middle">運行停止・大量輸送の麻痺</text>
 <polygon class="dg-arrow-out" points="746,176 764,176 764,170 778,180 764,190 764,184 746,184"/>
 <ellipse class="dg-node" cx="880" cy="180" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="185" text-anchor="middle">他エリアとの連系線</text>
+<text class="dg-nodetxt" x="880" y="185" text-anchor="middle">相互直通の他社線</text>
 <polygon class="dg-arrow-out" points="745,271 764,271 764,265 778,275 764,285 764,279 745,279"/>
 <ellipse class="dg-node" cx="880" cy="275" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="280" text-anchor="middle">OCCTO・JEPX</text>
+<text class="dg-nodetxt" x="880" y="280" text-anchor="middle">交通系ICカード</text>
 <polygon class="dg-arrow-out" points="718,366 764,366 764,360 778,370 764,380 764,374 718,374"/>
 <ellipse class="dg-node" cx="880" cy="370" rx="100" ry="34"/>
-<text class="dg-nodetxt" x="880" y="375" text-anchor="middle">社会機能・生活基盤</text>
+<text class="dg-nodetxt" x="880" y="375" text-anchor="middle">国交省への輸送障害報告</text>
 </svg>
       </div>
     </figure>
@@ -595,18 +595,18 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
     <div class="premise">
       <div class="p-in">
         <span class="zone">① アクセス経路</span>
-        <h4>入口は、外から見えている資産にある</h4>
-        <p>最初に狙われるのは、外部に露出したサーバーと機器である。需要家向けWeb、代理店ポータル、そして境界に置かれた遠隔監視・保守用の機器。<strong>既知の脆弱性が公開されていて修正が未適用であれば、認証情報を盗む手間すら要らない。</strong>閉域網の内側を守っても、その閉域へ入るための回線と機器が外に向いている。</p>
+        <h4>入口は、業務でも保安でもない場所にある</h4>
+        <p>運転支援アプリを運用する外部委託先のサーバーは、乗務員端末と運行管理系をつなぐ位置にある。業務系の基準でも保安系の基準でも管理されないまま残りやすい。</p>
       </div>
       <div class="p-core">
         <span class="zone">② 感染拡大と重要資産</span>
-        <h4>制御系は止められない。守れるのは境界とその手前</h4>
-        <p>攻撃者が端末から制御系へ直接届くわけではない。共通ADと特権ID（Tier 0）を奪い、OT資産の管理端末へ移り、保守回線・可搬媒体を経て境界を越える。この経路上で自社が実際に診断・修復できるのは境界とその手前である。制御系そのものは止められず、機器ベンダーの領域にあり、脆弱性が蓄積したまま残る。</p>
+        <h4>守るべきは予約システムだけではない</h4>
+        <p>攻撃者は端末を起点に特権IDを奪い、業務系と信号保安系の分離を越えようとする。保安系は改修に認可と長い検証を要するため、既知の脆弱性が長期間残り続ける。</p>
       </div>
       <div class="p-out">
         <span class="zone">③ イグレスと波及</span>
-        <h4>出口は2種類ある。情報が出る口と、影響が伝わる口</h4>
-        <p>イグレスは情報の持ち出し経路であり、通信プロトコル単位で起きる。一方でOTで問われるのは持ち出しよりも可用性と完全性であり、その影響は系統連系と広域機関への接続を通じて伝わる。経路が別であるため、対策も別に要る。系統は他エリアと連系しており、影響は自社の供給区域で止まらない。</p>
+        <h4>出口の先は、自社の路線ではない</h4>
+        <p>相互直通運転により、影響は自社の路線で止まらない。首都圏では1路線の停止が数百万人の移動に及び、輸送障害は国土交通省への報告対象になる。</p>
       </div>
     </div>
   </div>
@@ -631,28 +631,28 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
         <article class="risk" id="risk-1">
           <div class="risk__head">
             <span class="risk__num">リスク 01 ／ 侵入口</span>
-            <h3>外部に露出したサーバーの既知脆弱性──需要家向け公開系と、その中のライブラリ</h3>
-            <p class="risk__where">Web・アプリ・小売料金窓口／代理店ポータル／内部で利用するオープンソースライブラリ</p>
+            <h3>委託先の業務アプリ基盤──業務系でも保安系でもない領域</h3>
+            <p class="risk__where">IPA 10大脅威 2026・組織 2位「サプライチェーンや委託先を狙った攻撃」／運転支援アプリ等の外部委託先サーバー</p>
           </div>
           <div class="risk__grid">
             <div class="rblock rblock--why">
               <h4>なぜ、いま顕在化したのか</h4>
-              <p>外部に公開している資産は、攻撃者から見て常時観測できる面である。年に一度の脆弱性診断で確認していた範囲は、AIによる継続的かつ網羅的な走査の対象に変わった。</p>
-              <p>より見落とされやすいのが、その中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。</p>
+              <p>運転支援アプリ、乗務員向けの業務システム、保守の作業管理。これらは外部の委託先が運用していることが多く、<strong>乗務員端末と運行管理系の双方に接続する位置</strong>にある。</p>
+              <p>業務システムの管理基準でも、保安システムの管理基準でも扱われないため、点検の対象から漏れやすい。AIによる偵察の自動化がこの構造を突く。<strong>攻撃者は接続する事業者を並列に走査し、最も守りの薄い一社を選び出せる。</strong></p>
             </div>
             <div class="rblock rblock--case">
               <h4>実際に起きたこと</h4>
               <ul>
-                <li><span class="casetag">2026年6月／国内・送配電事業者</span>暗号化が設定されていないバックアップSSDが物理的に紛失し、約1,090万口分の顧客情報が対象となった。デジタルの侵入経路だけが漏えい経路ではない。</li>
-                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
+                <li><span class="casetag">2026年7月／国内・輸送事業者</span>ランサムウェアに感染し、約2.9テラバイトに及ぶ機密ファイルの一覧がリークサイトに掲載された。輸送インフラは、運行そのものだけでなく、預かっている業務データの面でも標的になっている。</li>
+                <li><span class="casetag">2026年／国内・医療機関</span>保守用VPNを経由して侵入され、ランサムウェアにより約13万人分の個人情報が漏えいした。別の事案では、VPN機器のアカウント管理の不備が侵入口となったとみられている。</li>
               </ul>
             </div>
             <div class="rblock rblock--fix">
               <h4>講じるべき対策</h4>
               <ul>
-                <li><strong>公開系のブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
-                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。</li>
-                <li><strong>コード改修までの露出時間を仮想パッチで埋める。</strong>制御系は停止できないため、コードに触れずに露出を下げる手段が要る。</li>
+                <li><strong>診断の範囲を、自社システムではなく接続の単位で定義する。</strong>委託先が運用する業務アプリ基盤を、最初に対象へ含める。</li>
+                <li><strong>委託先の接続アカウントについて、多要素認証と権限の棚卸しを契約条件として要求する。</strong>直近の重大事案は、いずれもこの一点を起点としている。</li>
+                <li><strong>業務系と保安系のどちらの管轄でもない資産を、明示的に棚卸しする。</strong>責任の所在が決まっていない領域が、最も長く放置される。</li>
               </ul>
             </div>
           </div>
@@ -660,35 +660,6 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
         <article class="risk" id="risk-2">
           <div class="risk__head">
             <span class="risk__num">リスク 02 ／ 侵入口</span>
-            <h3>保守事業者の遠隔監視回線──閉域網へ入るための扉</h3>
-            <p class="risk__where">IPA 10大脅威 2026・組織 2位「サプライチェーンや委託先を狙った攻撃」</p>
-          </div>
-          <div class="risk__grid">
-            <div class="rblock rblock--why">
-              <h4>なぜ、いま顕在化したのか</h4>
-              <p>制御系は閉域網で隔離されている、という前提が長く安全性の根拠とされてきた。しかし遠隔監視、予兆保全、スマート保安の導入によって、その閉域へ外部から入るための回線が増え続けている。</p>
-              <p>AIによる偵察の自動化が、この構造を突く。<strong>攻撃者は接続する事業者を並列に走査し、最も守りの薄い一社を選び出せる。</strong>本体の設備投資額は、この経路に対しては意味を持たない。</p>
-            </div>
-            <div class="rblock rblock--case">
-              <h4>実際に起きたこと</h4>
-              <ul>
-                <li><span class="casetag">2025年〜2026年／米国・電力事業者</span>中国政府の支援が指摘されるOT狙いの攻撃グループにより、小規模電力事業者のネットワークが約1年にわたり侵害されていたことがFBIから通知された。潜伏は検知されないまま継続していた。</li>
-                <li><span class="casetag">2026年／国内・医療機関</span>保守用VPNを経由して侵入され、ランサムウェアにより約13万人分の個人情報が漏えいした。別の事案では、VPN機器のアカウント管理の不備が侵入口となったとみられている。</li>
-              </ul>
-            </div>
-            <div class="rblock rblock--fix">
-              <h4>講じるべき対策</h4>
-              <ul>
-                <li><strong>診断の範囲を、自社設備ではなく接続の単位で定義する。</strong>本体だけを診断しても、実際の侵入口は対象外に残る。</li>
-                <li><strong>保守事業者の接続アカウントについて、多要素認証と権限の棚卸しを契約条件として要求する。</strong>直近の重大事案は、いずれもこの一点を起点としている。</li>
-                <li><strong>IT系とOT系の境界を、独立した診断対象として扱う。</strong>どちらの担当部署の管轄でもない領域が、最も長く放置される。</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="risk" id="risk-3">
-          <div class="risk__head">
-            <span class="risk__num">リスク 03 ／ 侵入口</span>
             <h3>従業員の端末──URLをクリックさせる攻撃が主流になった</h3>
             <p class="risk__where">なりすましメール／偽サイト／Web会議／受領ファイルの実行</p>
           </div>
@@ -715,6 +686,35 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             </div>
           </div>
         </article>
+        <article class="risk" id="risk-3">
+          <div class="risk__head">
+            <span class="risk__num">リスク 03 ／ 侵入口</span>
+            <h3>予約サイト・モバイルアプリと、その中のライブラリ</h3>
+            <p class="risk__where">予約サイト・モバイルアプリ／券売機・自動改札／内部で利用するオープンソースライブラリ</p>
+          </div>
+          <div class="risk__grid">
+            <div class="rblock rblock--why">
+              <h4>なぜ、いま顕在化したのか</h4>
+              <p>予約サイトとモバイルアプリは外部に公開され、利用者数も多い。攻撃者から見て常時観測できる面であり、年に一度の脆弱性診断で確認していた範囲は、AIによる継続的かつ網羅的な走査の対象に変わった。</p>
+              <p>より見落とされやすいのが、その中身である。自社で書いたコードは、レビューを経た安全なものしか使われない。<strong>危険なのは、外部から取り込んだライブラリのほうである。</strong>最新版として配布されたものに悪意が仕込まれていれば、自社のコードがどれだけ健全でも意味をなさない。</p>
+            </div>
+            <div class="rblock rblock--case">
+              <h4>実際に起きたこと</h4>
+              <ul>
+                <li><span class="casetag">2026年3月／広く使われるライブラリ</span>利用者の多いJavaScriptライブラリで、メンテナーのアカウントが侵害され、悪意ある依存パッケージが配布された。取り込んだ側は、自社のコードを一行も変えていない。</li>
+                <li><span class="casetag">フロンティアAIによる検出実績</span>サーバーOSで27年間、ファイル共有機能で17年間、動画・音声処理ソフトで16年間、いずれも未発見だった脆弱性がAIにより検出された。広く使われている基盤ソフトほど、影響範囲が大きい。</li>
+              </ul>
+            </div>
+            <div class="rblock rblock--fix">
+              <h4>講じるべき対策</h4>
+              <ul>
+                <li><strong>公開系のブラックボックス診断を先行する。</strong>対象URL・FQDN等のアクセス情報のみで実施できるため、資産台帳の整備完了を待たずに着手できる。</li>
+                <li><strong>ソースコード診断では、自社コードだけでなく利用ライブラリの構成まで確認する。</strong>ソフトウェア部品表（SBOM）の整備は国内で法的義務ではないが、経済産業省が導入の手引を公表し、2026年7月には国際ガイダンスへ共同署名している。</li>
+                <li><strong>コード改修までの露出時間を仮想パッチで埋める。</strong>公開系は営業時間中に止められないため、コードに触れずに露出を下げる手段が要る。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
     <div class="vgroup">
@@ -735,7 +735,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
             <div class="rblock rblock--why">
               <h4>なぜ、いま顕在化したのか</h4>
               <p>典型的な攻撃は次の順序をたどる。一般従業員の端末を掌握し、情報システム部門のアカウントへ移り、<strong>特権IDを奪って、そこを起点に重要資産へアクセスする。</strong>ID基盤は、奪われた時点で他のすべての対策が無効になるため「Tier 0」と呼ばれる。</p>
-              <p>近年これに加えて標的になっているのが、仮想化基盤とバックアップ基盤である。ハイパーバイザーを掌握すれば、その上で動くすべての仮想マシンを操作できる。利用者は、自分が接続している仮想マシンが乗っ取られていることに気づかないまま認証情報を入力してしまう。バックアップまで暗号化されれば、復旧の手段そのものが失われる。 制御系ではさらに、停止できないという理由でパッチ適用が長期間先送りされ、既知の脆弱性が残り続ける。加えて制御機器は機器ベンダーの領域にあり、自社の判断だけでは手を入れられない。<strong>自社が実際に修復できるのは、共通AD・管理端末・仮想化基盤といった境界の手前側である。</strong>ここが落ちれば、制御系が健全であっても運用は成立しない。</p>
+              <p>近年これに加えて標的になっているのが、仮想化基盤とバックアップ基盤である。ハイパーバイザーを掌握すれば、その上で動くすべての仮想マシンを操作できる。利用者は、自分が接続している仮想マシンが乗っ取られていることに気づかないまま認証情報を入力してしまう。バックアップまで暗号化されれば、復旧の手段そのものが失われる。 鉄道ではさらに、業務系と信号保安系の分離が設計上は存在しても、運用の過程で例外の経路が積み重なることがある。</p>
             </div>
             <div class="rblock rblock--case">
               <h4>実際に起きたこと</h4>
@@ -757,28 +757,28 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
         <article class="risk" id="risk-5">
           <div class="risk__head">
             <span class="risk__num">リスク 05 ／ 重要資産</span>
-            <h3>クラウンジュエルは発電設備ではない──制御系が無事でも、運用は止まる</h3>
-            <p class="risk__where">EMS・SCADA／変電所 遠制装置（RTU・IED）／保護リレー／配電自動化システム／計量データ（MDMS）</p>
+            <h3>クラウンジュエルは予約システムとは限らない──運行管理と信号保安</h3>
+            <p class="risk__where">運行管理（CTC・PRC・ATOS等）／信号・連動装置／ATS・ATC／指令通信・列車無線</p>
           </div>
           <div class="risk__grid">
             <div class="rblock rblock--why">
               <h4>なぜ、いま顕在化したのか</h4>
-              <p>重要資産といえば発電所を想起しがちだが、系統全体を制御しているのは中央給電指令所のEMS・SCADAであり、現場で実際に遮断器を動かすのは変電所の遠制装置と保護リレーである。<strong>設備そのものより、それを動かす指令系のほうが少ない手数で広い範囲に影響する。</strong></p>
-              <p>そのうえで重要なのは、これらの制御機器が止められず、機器ベンダーの領域にあるという点である。自社が実際に診断・修復できるのは、境界とその手前——共通AD・特権ID、OT資産の管理端末、仮想化・バックアップ基盤、そして運用の判断材料を持つ情報系である。<strong>制御系が健全であっても、この手前側が落ちれば需給運用も復旧の手配も動かない。</strong>クラウンジュエルは、失った場合の影響で決めるべきであって、設備の重要度で決めるものではない。</p>
+              <p>鉄道の重要資産は、予約や収入のシステムではなく<strong>運行管理と信号保安系</strong>である。これらは停止すれば輸送が止まり、誤動作すれば安全に直結する。</p>
+              <p>この領域の難しさは、脆弱性が見つかってから直るまでの期間にある。認可と長期の検証を要し、機器の更新も一斉には進まない。<strong>コードを直せない期間が数年単位で続く前提に立つ必要がある。</strong>その間、露出を下げる手段を持っているかどうかが差になる。</p>
             </div>
             <div class="rblock rblock--case">
               <h4>実際に起きたこと</h4>
               <ul>
-                <li><span class="casetag">2026年7月／米国・水道事業者</span>複数州の水道事業者がサイバー事案をFBIに報告。1つの州では30施設に対する協調的な攻撃が確認され、PLC（制御機器）が標的となった。手動運転への切り替えを強いられた施設もある。</li>
-                <li><span class="casetag">制度面の動き</span>重要インフラのサイバーセキュリティ対策のための統一基準が2026年10月1日に施行され、電力を含む分野横断で講ずべき対策の基準が定められる。</li>
+                <li><span class="casetag">2025年7月／北米・鉄道</span>走行中の列車を停止させうる、無線ブレーキ制御プロトコルの認証欠陥が公表された（CVE-2025-1727、CVSS 8.1）。暗号的な認証を持たず、偶発的な誤りを検出するための検査符号に依存していたため、ソフトウェア無線で指令を偽造できる。約25,000台の車掌車側機器と45,000台の機関車側機器が更新対象となったが、修正プロトコルの提供は早くとも2027年とされる。<strong>この脆弱性は2012年に報告されていた。</strong></li>
+                <li><span class="casetag">2023年8月／欧州・鉄道</span>無線で不正な緊急停止信号を送信され、複数の列車が停止させられた。特別な設備を要さない手法であったことが問題視された。</li>
               </ul>
             </div>
             <div class="rblock rblock--fix">
               <h4>講じるべき対策</h4>
               <ul>
-                <li><strong>まず、自社のクラウンジュエルを特定して合意する。</strong>「発電設備」と決め打ちせず、止まった場合の影響で順位付けする。統一基準が求める優先システムの特定は、この作業を指している。</li>
-                <li><strong>IT／OT境界の資産台帳を作る。</strong>どちらの管轄でもない機器が、診断対象から漏れる。</li>
-                <li><strong>手動操作への縮退手順を、机上でなく実地で検証する。</strong>制御系が使えない状態からの復旧は、平時の手順書だけでは回らない。</li>
+                <li><strong>まず、自社のクラウンジュエルを特定して合意する。</strong>「予約システム」と決め打ちせず、止まった場合と誤動作した場合の双方の影響で順位付けする。</li>
+                <li><strong>直せない期間を前提に、露出を下げる手段を用意する。</strong>仮想パッチ、経路の分離、監視の強化は、機器の更新を待たずに着手できる。</li>
+                <li><strong>業務系と保安系の分離を、設計ではなく実際の経路で検証する。</strong>運用のなかで追加された例外が、分離を無効化していることがある。</li>
               </ul>
             </div>
           </div>
@@ -797,19 +797,19 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
           <div class="risk__head">
             <span class="risk__num">リスク 06 ／ 持ち出し口</span>
             <h3>出口は、業務で使っている通信そのもの</h3>
-            <p class="risk__where">HTTPS／SMTP・IMAP／FTP・SFTP／DNS／スマートメーター網・OCCTO・JEPX</p>
+            <p class="risk__where">HTTPS／SMTP・IMAP／FTP・SFTP／DNS／相互直通他社のダイヤ連携・交通系ICカード相互利用</p>
           </div>
           <div class="risk__grid">
             <div class="rblock rblock--why">
               <h4>なぜ、いま顕在化したのか</h4>
               <p>攻撃者はデータを持ち出す際、専用の通信路を新設しない。<strong>業務で常用されている通信に紛れ込ませる。</strong>暗号化されたHTTPS通信は中身が見えず、メールは日常的に外部へ出て行き、ファイル転送は業務上の正当な用途を持つ。</p>
-              <p>電力で注意を要するのは、出口が2種類あることである。<strong>ひとつは情報が出ていく口、もうひとつは影響が外へ伝わる口であり、この2つは別の経路である。</strong>前者は通信プロトコル単位で起きる。後者はスマートメーター網、広域機関（OCCTO）、卸電力取引所（JEPX）、他エリアとの系統連系を通じて伝わる。OTで問われるのは情報の持ち出しよりも可用性と完全性であり、<strong>防御の境界が自社の内側で完結しない。</strong></p>
+              <p>鉄道ではこれに加えて、相互直通他社との運行指令・ダイヤ連携、交通系ICカードの相互利用センターとの接続が、被害を受け取る経路であると同時に外部へ流し出す経路にもなる。<strong>防御の境界が自社の内側で完結しない。</strong></p>
             </div>
             <div class="rblock rblock--case">
               <h4>実際に起きたこと</h4>
               <ul>
                 <li><span class="casetag">2024年2月／米国・医療決済基盤</span>ランサムウェアが展開される前の9日間で、約6テラバイトのデータが持ち出されていた。暗号化による業務停止は、流出が完了した後に起きている。</li>
-                <li><span class="casetag">2026年6月／国内・送配電事業者</span>暗号化未設定の物理媒体の紛失により、約1,090万口分の顧客情報が対象となった。持ち出し経路は通信に限らない。</li>
+                <li><span class="casetag">2026年7月／国内・輸送事業者</span>約2.9テラバイトに及ぶ機密ファイルの一覧がリークサイトに掲載された。持ち出しの規模は、暗号化される前にすでに決まっている。</li>
               </ul>
             </div>
             <div class="rblock rblock--fix">
@@ -817,7 +817,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
               <ul>
                 <li><strong>出口をプロトコル単位で棚卸しする。</strong>「どのネットワークから出られるか」ではなく「どの通信で外へ出せるか」で洗い出す。</li>
                 <li><strong>暗号化されるまでの時間を前提に設計する。</strong>暗号化される前に大量のデータが出ていく。検知の起点は暗号化ではなく、通信量と宛先の異常に置く。</li>
-                <li><strong>系統連系先との責任分担を文書で明確化する。</strong>自社が原因でない停止も、需要家からは区別されない。</li>
+                <li><strong>相互直通他社との責任分担と連絡手順を、事前に文書化する。</strong>自社が原因でない停止も、利用者からは区別されない。</li>
               </ul>
             </div>
           </div>
@@ -847,24 +847,24 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <div class="step">
         <span class="step__n">選定軸 01</span>
         <h4>外部接点のあるシステム</h4>
-        <p>需要家向けWeb・アプリ、小売料金窓口、代理店ポータル、公開API。外部から攻撃を受けやすく、アクセス情報のみで実施できるブラックボックス診断と組み合わせやすい。</p>
+        <p>予約サイト、モバイルアプリ、公開API、駅の案内系。外部から攻撃を受けやすく、アクセス情報のみで実施できるブラックボックス診断と組み合わせやすい。</p>
       </div>
       <div class="step">
         <span class="step__n">選定軸 02</span>
-        <h4>IT／OT境界に置かれた資産</h4>
-        <p>遠隔監視・保守回線、OT資産の管理端末、データヒストリアン。閉域網の内と外をつなぐ位置にあり、どちらの管轄でもないまま放置されやすい。</p>
+        <h4>委託先が運用する業務アプリ基盤</h4>
+        <p>運転支援アプリ、乗務員向けシステム、保守の作業管理。業務系でも保安系でもない位置にあり、どちらの点検からも漏れやすい。最大の隙間にあたる。</p>
       </div>
       <div class="step">
         <span class="step__n">選定軸 03</span>
-        <h4>制御系（OT）</h4>
-        <p>EMS・SCADA、変電所遠制装置、配電自動化。停止・誤動作が広域停電に直結する。優先度は最も高いが、着手は上2つの実績を踏まえた段階が現実的。</p>
+        <h4>運行・信号保安系</h4>
+        <p>運行管理（CTC・PRC）、信号・連動装置、ATS・ATC。停止と誤動作が輸送と安全の双方に直結する。優先度は最も高いが、着手は上2つの実績を踏まえた段階が現実的。</p>
       </div>
     </div>
 
     <div class="prose" style="margin-top:2.5rem">
       <h3>進め方の目安</h3>
       <p>初回は、外部接点を持つシステムをブラックボックス診断で確認するところから始めるのが最も摩擦が少ない。ソースコードの提出を伴わないため法務・リスク管理部門の審査が短く済み、資産台帳の整備状況にも依存しない。ここで検出結果の粒度と修正案の実用性を確認したうえで、ソースコード診断の対象を機密情報系・基幹系へ広げていく。</p>
-      <p>制御系については、稼働を止められないという制約が最大の障壁になる。まず本番に触れない範囲（設定情報、構成、管理端末側のコード）から診断し、修正の要否と難易度を把握したうえで、定期点検の停止期間に合わせて適用計画を組む進め方が現実的である。</p>
+      <p>保安系については、改修に認可と長期の検証を要することが最大の制約になる。まず本番に触れない範囲（設定情報、構成、周辺の業務アプリ側のコード）から診断し、直せるものと直せないものを仕分ける。直せないものについては、仮想パッチと経路の分離で露出時間を圧縮する、という二段構えが現実的である。</p>
       <p>監督官庁への説明を要する立場であれば、この一連の記録そのものが「優先システムを特定し、リスクベースで優先順位を付け、対応した」という事実の裏付けになる。診断レポートは技術文書であると同時に、取締役会と監督官庁に対する説明資料でもある。</p>
     </div>
   </div>
@@ -977,14 +977,14 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
       <li>VMware ESXi を標的とした攻撃：VMware セキュリティアドバイザリ VMSA-2025-0004（CVE-2025-22224 ほか、実環境での悪用を確認）、米CISAによる警告、および2026年3月以降に確認されたランサムウェアの解析結果（稼働中の仮想マシンを停止させたうえでディスクを暗号化）。</li>
       <li>SB OAI Japan「Patching as a Service サービスご説明資料」2026年7月27日版、および「PaaSの概要」。サービス内容、ご提供価格、データ管理ポリシー、秘密保持条項、免責事項、診断対象システムの選定観点、フロンティアAIが発見した脆弱性の例、診断実績（1,000万行あたり平均280件、うち緊急・高リスク約25%）、AI診断エンジンGPT 5.5-Cyber。</li>
       <li>ソフトバンク自社における攻撃観測および脆弱性検証結果（2025年度）。偵察行為3億件／月。対象1,800システム、検出脆弱性10,500件、要対応4,000件。</li>
-      <li>国内大手電力会社における不正アクセス（2026年7月判明。一部システムに係る資格情報が不正利用され、役職員の電子メール約2,400件、グループ役職員および委託先社員約71,700人分の連絡先情報が漏えいした可能性。電力供給・お客さま情報を扱うシステムへの不正アクセスの痕跡は確認されていない）に関する公表情報。</li>
-      <li>米国におけるOT狙いの攻撃グループによる電力事業者への長期侵害、および複数州の水道事業者に対する協調的攻撃（2026年7月）に関する報道。</li>
-      <li>国内送配電事業者におけるバックアップ媒体の紛失（2026年6月、約1,090万口分）に関する公表情報。</li>
-      <li>国内医療機関における保守用VPN経由のランサムウェア被害（2026年、約13万人分）、および国内事業者におけるVPN機器のアカウント管理不備に関する公表情報・公開報道。</li>
+      <li>北米の鉄道で用いられる無線ブレーキ制御プロトコル（End-of-Train／Head-of-Train）の認証欠陥（CVE-2025-1727、CVSS v3 基本値 8.1）に関する米CISAのICSアドバイザリおよび報道。2012年に報告されながら2025年7月まで公表されず、約25,000台／45,000台の機器が更新対象、修正プロトコルの提供は2027年以降の見込み。</li>
+      <li>欧州の鉄道における無線を用いた不正な緊急停止信号の送信（2023年8月）に関する報道。</li>
+      <li>国内輸送事業者に対するランサムウェア攻撃と約2.9テラバイトのデータ流出（2026年7月）に関する報道。</li>
+      <li>国土交通省「鉄道分野における情報セキュリティ確保に係る安全ガイドライン」第5版（2024年4月18日改定）。</li>
       <li>本レポートに記載した監督官庁からの要請内容および対応項目は、公表資料および業界公表情報に基づく整理です。個別の要請文書の解釈および自社の適合状況の判断については、貴社のリスク管理部門・法務部門にご確認ください。</li>
     </ol>
     <p class="disclaimer">
-      本レポートは、電力会社における情報システムの一般的な構成を前提とした整理であり、特定の事業者のシステム構成、セキュリティ対策状況、脆弱性の有無について言及するものではありません。記載した被害事例は、各社の公表情報および公開報道に基づく本レポート作成時点での整理であり、原則として直近1年以内、長くとも3年以内の事案に限定しています。<br>
+      本レポートは、鉄道会社における情報システムの一般的な構成を前提とした整理であり、特定の事業者のシステム構成、セキュリティ対策状況、脆弱性の有無について言及するものではありません。記載した被害事例は、各社の公表情報および公開報道に基づく本レポート作成時点での整理であり、原則として直近1年以内、長くとも3年以内の事案に限定しています。<br>
       発行：SB OAI Japan 合同会社　／　2026年8月
     </p>
   </div>
@@ -993,6 +993,6 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:s
 <footer class="foot">
   <div class="wrap">
     <span>SB OAI JAPAN ／ PATCHING AS A SERVICE</span>
-    <span>業界別 AIサイバーセキュリティ・レポート ／ 電力会社編</span>
+    <span>業界別 AIサイバーセキュリティ・レポート ／ 鉄道会社編</span>
   </div>
 </footer>
